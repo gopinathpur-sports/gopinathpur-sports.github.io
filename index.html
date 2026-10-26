@@ -180,7 +180,7 @@ function formHtml(){
     if(t==='fund')h=`<div class="bar2"><button class="go" data-a="new" data-c="ledger">＋ জমা / খরচ এন্ট্রি</button></div>`;
   }
   if(t==='chat')h=`<div class="card"><div class="form"><input id="c-n" placeholder="আপনার নাম" maxlength="40" value="${esc(S.me.name)}"><input id="c-t" placeholder="মেসেজ লিখুন..." maxlength="300"><button class="go" data-a="send">পাঠান</button></div></div>`;
-  if(S.showLogin&&!S.admin&&!S.demo)h=`<div class="card"><b>🔐 অ্যাডমিন লগইন</b><div class="form" style="margin-top:8px"><input id="lo-e" type="email" placeholder="ইমেইল"><input id="lo-p" type="password" placeholder="পাসওয়ার্ড"><button class="go" data-a="dologin">লগইন</button></div></div>`+h;
+  if(S.showLogin&&!S.admin&&!S.demo)h=`<div class="card"><b>🔐 অ্যাডমিন লগইন</b><div class="form" style="margin-top:8px"><input id="lo-e" type="email" placeholder="ইমেইল"><input id="lo-p" type="password" placeholder="পাসওয়ার্ড"><button class="go" data-a="dologin">লগইন</button><button class="ghost" data-a="dogoogle">G&nbsp; Google দিয়ে লগইন</button></div></div>`+h;
   $('#form').innerHTML=h;
 }
 function mcard(m){
@@ -291,6 +291,7 @@ document.addEventListener('click',e=>{
   else if(a==='notif')toggleNotif();
   else if(a==='login'){if(S.admin){S.signOut&&S.signOut()}else{S.showLogin=!S.showLogin;formHtml()}}
   else if(a==='dologin'){S.err='';S.signIn($('#lo-e').value.trim(),$('#lo-p').value).catch(()=>{S.err='ইমেইল বা পাসওয়ার্ড ভুল';render()})}
+  else if(a==='dogoogle'){S.err='';S.google().catch(e=>{S.err=(e&&e.code==='auth/unauthorized-domain')?'Firebase-এ Authorized domains-এ এই সাইটের ঠিকানা যোগ করুন':'Google লগইন হয়নি, আবার চেষ্টা করুন';render()})}
   else if(a==='new')openSheet(b.dataset.c);
   else if(a==='edit')openSheet(b.dataset.c,id);
   else if(a==='esite')openSheet('settings','site');
@@ -317,7 +318,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()})
       const app=A.initializeApp(FIREBASE_CONFIG),auth=Au.getAuth(app);
       S.db=fsDb(F.getFirestore(app),F);
       S.auth=async()=>{if(!auth.currentUser)await Au.signInAnonymously(auth);S.me.id=auth.currentUser.uid};
-      S.signIn=(e,p)=>Au.signInWithEmailAndPassword(auth,e,p);S.signOut=()=>Au.signOut(auth);
+      S.signIn=(e,p)=>Au.signInWithEmailAndPassword(auth,e,p);S.signOut=()=>Au.signOut(auth);S.google=()=>Au.signInWithPopup(auth,new Au.GoogleAuthProvider());
       Au.onAuthStateChanged(auth,u=>{S.me.id=u?u.uid:null;S.admin=!!(u&&u.email&&ADMIN_EMAILS.includes(u.email.toLowerCase()));if(S.admin)S.showLogin=false;formHtml();render()});
     }catch(e){S.db=null}
   }
