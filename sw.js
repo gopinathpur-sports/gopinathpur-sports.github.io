@@ -1,5 +1,5 @@
-const C='gs-v1';
-self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','index.html','icon-192.png'])).catch(()=>{}))});
+const C='gs-v2';
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','index.html','icon-192.png','manifest.webmanifest'])).catch(()=>{}))});
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
 self.addEventListener('fetch',e=>{
   const u=new URL(e.request.url);
