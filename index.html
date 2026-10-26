@@ -399,8 +399,8 @@ function crep(){
 }
 function chatFoot(){
   const el=$('#cin');if(!el)return;
-  el.innerHTML=S.user?`<div class="cf"><button class="ic" data-a="cimg">📷</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off"><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" hidden>`
-   :`<div class="cf"><button class="go" data-a="login" style="width:100%">G&nbsp; সাইন ইন করে চ্যাটে যোগ দিন</button></div>`;
+  el.innerHTML=(S.user&&S.approved)?`<div class="cf"><button class="ic" data-a="cimg">📷</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off"><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" hidden>`
+   :`<div class="cf"><button class="go" data-a="login" style="width:100%">${S.user?'⏳ অ্যাডমিন অনুমোদনের অপেক্ষায়':'G&nbsp; সাইন ইন করে চ্যাটে যোগ দিন'}</button></div>`;
   crep();
 }
 function openChat(room){
@@ -573,7 +573,7 @@ document.addEventListener('click',e=>{
   else if(a==='dosignout'){S.sheet=null;sheet();S.signOut()}
   else if(a==='cname'){S.sheet={kind:'name',d:{name:S.me.name||(S.user&&S.user.displayName)||''}};if(!S.user){openLogin();return}sheet()}
   else if(a==='savename'){const n=$('#sh-nm').value.trim();if(!n){S.sheet.err='নাম লিখুন';sheet();return}
-    S.me.name=n;S.sheet=null;sheet();write(()=>S.db.doc('users/'+S.me.id).set({name:n}));chatFoot()}
+    S.me.name=n;S.sheet=null;sheet();write(()=>S.db.doc('users/'+S.me.id).set({name:n,approved:!!(S.owner||S.admin||S.approved),email:S.user.email||''}));chatFoot()}
   else if(a==='admins'&&S.owner){S.sheet={kind:'admins',err:''};sheet()}
   else if(a==='approve'&&S.admin){const r=(S.requests||[]).find(x=>x.id===id);if(r){write(async()=>{await S.db.doc('users/'+id).set({approved:true,email:r.email||'',name:r.name||'',approvedAt:Date.now(),approvedBy:S.me.name||S.me.id});await S.db.doc('requests/'+id).set({status:'approved',approvedAt:Date.now()})})}}
   else if(a==='reject'&&S.admin){write(async()=>{await S.db.doc('requests/'+id).set({status:'rejected',rejectedAt:Date.now()})})}
@@ -640,7 +640,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()})
     let unA=null;
     Au.onAuthStateChanged(auth,async u=>{
       if(u&&u.isAnonymous){await Au.signOut(auth);return}
-      S.user=u;S.me.id=u?u.uid:null;S.me.photo=(u&&u.photoURL)||'';S.me.name='';
+      S.user=u;S.me.id=u?u.uid:null;S.me.photo=(u&&u.photoURL)||'';S.me.name='';S.chat=[];
       const em=u&&u.email?u.email.toLowerCase():'';
       S.owner=!!(em&&u.emailVerified&&OWNER.includes(em));S.admin=S.owner;
       if(S.sheet&&S.sheet.kind==='login')S.sheet=null;
@@ -653,6 +653,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()})
         S.approved=!!(S.owner||S.admin||(p&&p.approved===true));
         if(S.admin)sub('requests','requests');
         if(!S.approved){await S.db.doc('requests/'+u.uid).set({uid:u.uid,email:em,name:S.me.name||(u.displayName||''),photo:u.photoURL||'',status:'pending',ts:Date.now()});S.sheet={kind:'pending'};}
+        else { sub('chat','chat',S.db.collection('chat').orderBy('ts','desc').limit(150)); }
         if(S.owner)unA=sub('admins','admins');
       }catch(x){S.approved=!!(S.owner||S.admin)}
       if(S.approved&&!S.me.name&&!S.sheet){S.sheet={kind:'name',d:{name:u.displayName||''}};}
@@ -662,7 +663,6 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()})
     S.subLedger=()=>sub('ledger','ledger',S.db.collection('ledger').orderBy('ts','asc').limit(500));render();
     sub('gallery','gallery',S.db.collection('gallery').orderBy('ts','desc').limit(60));
     sub('notices','notices',S.db.collection('notices').orderBy('ts','desc').limit(5));
-    sub('chat','chat',S.db.collection('chat').orderBy('ts','desc').limit(150));
     sub('players','players',S.db.collection('players').orderBy('ts','asc').limit(200));
     sub('settings','settingsL');
   }catch(e){S.err='ইন্টারনেট সংযোগ নেই বা সার্ভার লোড হয়নি';render()}
