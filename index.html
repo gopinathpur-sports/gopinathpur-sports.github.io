@@ -28,6 +28,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 .note{display:flex;justify-content:space-between;gap:8px;align-items:center;background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--gold);border-radius:12px;padding:9px 12px;margin-bottom:8px;font-size:14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .inst{display:flex;justify-content:space-between;align-items:center;gap:8px;background:linear-gradient(90deg,var(--a),var(--b));color:var(--on);border-radius:14px;padding:10px 12px;margin-bottom:10px;font-size:14px;font-weight:600}
 .inst button{border:0;border-radius:14px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}.inst .x{background:transparent;color:var(--on);padding:4px 8px}.inst .y{background:#fff;color:#0a6b3a;font-weight:700}
+#sport-filter{display:block;min-width:0;width:100%;overflow:hidden}
 #tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--bd);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom,0px);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 #tabs .in{display:flex;width:100%;max-width:720px}
 #tabs button{flex:1;border:0;background:transparent;color:var(--mut);font:inherit;font-size:11px;padding:7px 0 8px;cursor:pointer}
@@ -37,8 +38,9 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 #fab{position:fixed;right:14px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:25;width:56px;height:56px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--a),var(--b));color:var(--on);font-size:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 0 4px rgba(44,245,160,.15),0 8px 24px rgba(0,0,0,.45);animation:glow 2.6s ease-in-out infinite}
 #fab em{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-style:normal;font-size:11px;font-weight:700;border-radius:10px;padding:0 6px;min-width:20px;line-height:20px;text-align:center}
 @keyframes glow{50%{box-shadow:0 0 0 9px rgba(44,245,160,.08),0 8px 24px rgba(0,0,0,.45)}}
-.chips{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px;padding-bottom:2px}
-.chip{flex:0 0 auto;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:7px 13px;border-radius:20px;font:inherit;font-size:14px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chips{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;max-width:100%;margin:0 0 10px;padding:2px 0 5px;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;overscroll-behavior-x:contain}
+.chips::-webkit-scrollbar{display:none}
+.chip{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;white-space:nowrap;min-height:36px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:6px 12px;border-radius:20px;font:inherit;font-size:14px;line-height:1.2;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .chip.on{background:linear-gradient(135deg,var(--a),var(--b));border-color:transparent;color:var(--on);font-weight:700}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:14px;margin-bottom:10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 22px rgba(0,0,0,.18)}
 .top{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:10px;gap:6px}
@@ -282,7 +284,7 @@ function mcard(m){
   return `<div class="card"><div class="top"><span>${ic} ${nm}</span>${badge}</div><div class="vs"><b>${esc(m.home)}</b><span class="sc${bump}">${sc}</span><b>${esc(m.away)}</b></div><div class="mut">${elapsed!==null?'⏱️ ম্যাচ চলছে: '+bn(elapsed)+' মিনিট · ':''}${esc(m.when||'')}${m.venue?' · '+esc(m.venue):''}</div>${momentHtml}${evBoard(m)}
   <div class="adm"><button class="mini" data-a="mchat" data-id="${m.id}">💬 এই ম্যাচ নিয়ে আলাপ${n?' ('+bn(n)+')':''}</button><button class="mini" data-a="share" data-id="${m.id}">📤 শেয়ার</button></div>${a}</div>`;
 }
-const chips=()=>`<div class="chips"><button class="chip ${S.sport==='all'?'on':''}" data-a="sp" data-v="all">সব</button>`+Object.entries(SP).map(([k,v])=>`<button class="chip ${S.sport===k?'on':''}" data-a="sp" data-v="${k}">${v[0]} ${v[1]}</button>`).join('')+'</div>';
+const chips=()=>`<div class="chips" id="sport-filter"><button class="chip ${S.sport==='all'?'on':''}" data-a="sp" data-v="all">সব</button>`+Object.entries(SP).map(([k,v])=>`<button class="chip ${S.sport===k?'on':''}" data-a="sp" data-v="${k}">${v[0]} ${v[1]}</button>`).join('')+'</div>';
 function listMatch(){
   const rank={live:0,upcoming:1,done:2};
   const ms=S.matches.filter(m=>S.sport==='all'||m.sport===S.sport).sort((a,b)=>(rank[a.status]-rank[b.status])||((a.status==='done'?-1:1)*((a.ts||0)-(b.ts||0))));
