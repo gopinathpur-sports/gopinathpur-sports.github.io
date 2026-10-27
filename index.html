@@ -162,6 +162,7 @@ header{flex-wrap:nowrap;gap:6px}header>div:first-child{flex:1 1 auto;min-width:0
 .dy.nw{color:var(--a);border-color:var(--a)}.cf .ic.rec{background:var(--red);color:#fff;width:auto;padding:0 12px;border-radius:21px}
 .cpn{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 10px 0;padding:10px;border:1px solid var(--bd);border-radius:16px;background:var(--card)}.cpn button{border:0;background:var(--btn);color:var(--tx);border-radius:12px;padding:10px 4px;font:inherit;font-size:12px;cursor:pointer}.cpn button b{display:block;font-size:22px;font-weight:400}.cpn.st{grid-template-columns:repeat(5,1fr)}.cpn.st button{font-size:30px;padding:6px}.cpn.sh2{grid-template-columns:1fr}
 .mo{background:none;border:0;color:inherit;font-size:17px;line-height:1;padding:0 8px 0 0;cursor:pointer;opacity:.8}.tm{display:flex;align-items:center;justify-content:flex-end}
+.cf #cmic{display:flex;align-items:center;justify-content:center;color:var(--a)}.cf #cmic.rec{color:#fff}
 </style></head><body>
 <div id="bg"><div class="bl"></div><div class="bl"></div></div>
 <header><div style="display:flex;gap:9px;align-items:center;min-width:0"><img src="icon-192.png" width="38" height="38" alt="" style="border-radius:11px;flex:none"><div class="logo"><div class="sub"><span id="nm">গোপীনাথপুর স্পোর্টস</span><button class="mini" id="es" data-a="esite" style="display:none">✎</button></div><small id="tg">VILLAGE SPORTS HUB</small></div></div>
@@ -568,6 +569,7 @@ function render(){
 
 /* ---------- চ্যাট ---------- */
 const dayL=ts=>{const d=new Date(ts),t=new Date(),k=x=>x.toDateString(),y=new Date(t-864e5);return k(d)===k(t)?'আজ':k(d)===k(y)?'গতকাল':d.toLocaleDateString(gsLoc,{day:'numeric',month:'long'})};
+const MIC='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>';
 const STK=[['ball','⚽'],['cup','🏆'],['fire','🔥'],['clap','👏'],['lol','😂'],['cool','😎'],['pow','💪'],['net','🥅'],['bat','🏏'],['gg','🤝'],['gol','<b class="sg">গোওওওল!</b>'],['wow','<b class="sg" style="--g:#ff6a3d">দারুণ খেলা!</b>'],['hr','<b class="sg" style="--g:#4d7cff">আবার হবে!</b>'],['ok','<b class="sg" style="--g:#a14dff">আসছি ভাই!</b>']];
 const ytId=u=>{const m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/))([\w-]{11})/);return m?m[1]:''};
 const pl1=t=>esc(t).replace(/@([^\s@<]+)/g,'<span class="mn">@$1</span>');
@@ -587,7 +589,7 @@ function msgHtml(x,cont){
   const tm=new Date(x.ts||Date.now()).toLocaleTimeString(gsLoc,{hour:'numeric',minute:'2-digit'});
   const aud=x.aud&&/^data:audio\//.test(x.aud)?`<audio controls preload="none" src="${esc(x.aud)}" style="width:min(240px,60vw);height:40px;margin-top:4px"></audio>`:'';
   const yt=vid?`<div class="yt" data-a="yt" data-v="${vid}"><img loading="lazy" src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt=""><i>▶</i></div>`:'';
-  return `<div class="m ${mine?'me':''} ${cont?'cont':''}">${av}<div class="mb ${sk?'sk':''}" data-a="mact" data-id="${x.id}"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${sk?`<div class="stk">${sk}</div>`:txt?`<div>${txt}</div>`:''}${yt}${aud}${x.poll?pollHtml(x):''}${x.mid?mcardMini(x.mid):''}${im?`<img class="mi" loading="lazy" src="${im}" alt="" data-a="cview" data-id="${x.id}">`:''}${rxs}<span class="tm"><button class="mo" data-a="mact" data-id="${x.id}" aria-label="অপশন">⋯</button> ${tm}</span></div></div>`;
+  return `<div class="m ${mine?'me':''} ${cont?'cont':''}">${av}<div class="mb ${sk?'sk':''}" data-a="mact" data-id="${x.id}"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${sk?`<div class="stk">${sk}</div>`:txt&&!x.aud?`<div>${txt}</div>`:''}${yt}${aud}${x.poll?pollHtml(x):''}${x.mid?mcardMini(x.mid):''}${im?`<img class="mi" loading="lazy" src="${im}" alt="" data-a="cview" data-id="${x.id}">`:''}${rxs}<span class="tm"><button class="mo" data-a="mact" data-id="${x.id}" aria-label="অপশন">⋯</button> ${tm}</span></div></div>`;
 }
 function chatMsgs(){
   const el=$('#cmsgs');if(!el)return;
@@ -614,7 +616,7 @@ function crep(){
 }
 function chatFoot(){
   const el=$('#cin');if(!el)return;
-  el.innerHTML=(S.user&&S.approved)?`<div class="cf"><button class="ic" data-a="cplus">＋</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off" enterkeyhint="send"><button class="ic" id="cmic" data-a="cmic">🎤</button><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" multiple hidden>`
+  el.innerHTML=(S.user&&S.approved)?`<div class="cf"><button class="ic" data-a="cplus">＋</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off" enterkeyhint="send"><button class="ic" id="cmic" data-a="cmic">${MIC}</button><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" multiple hidden>`
    :`<div class="cf"><button class="go" data-a="login" style="width:100%">${S.user?'⏳ অ্যাডমিন অনুমোদনের অপেক্ষায়':'G&nbsp; সাইন ইন করে চ্যাটে যোগ দিন'}</button></div>`;
   crep();
 }
@@ -639,7 +641,7 @@ async function toggleRec(){
     if(!mt){st.getTracks().forEach(t=>t.stop());toast('এই ফোনে ভয়েস রেকর্ড সাপোর্ট নেই');return}
     const r=new MediaRecorder(st,{mimeType:mt,audioBitsPerSecond:24000}),ch=[],t0=Date.now();let tk,tm;rec=r;
     r.ondataavailable=e=>{if(e.data.size)ch.push(e.data)};
-    r.onstop=()=>{clearTimeout(tm);clearInterval(tk);st.getTracks().forEach(t=>t.stop());rec=null;const b=$('#cmic');if(b){b.textContent='🎤';b.classList.remove('rec')}
+    r.onstop=()=>{clearTimeout(tm);clearInterval(tk);st.getTracks().forEach(t=>t.stop());rec=null;const b=$('#cmic');if(b){b.innerHTML=MIC;b.classList.remove('rec')}
       if(Date.now()-t0<800)return;const fr=new FileReader();fr.onload=()=>{if(fr.result.length>290000){toast('ভয়েস অনেক বড়');return}sendChat('🎤 ভয়েস মেসেজ','','',{aud:fr.result})};fr.readAsDataURL(new Blob(ch,{type:mt}))};
     r.start();const b=$('#cmic');if(b)b.classList.add('rec');
     tk=setInterval(()=>{const q=$('#cmic');if(q)q.textContent='⏹ '+Math.floor((Date.now()-t0)/1000)+'s'},400);tm=setTimeout(()=>r.stop(),30000);
