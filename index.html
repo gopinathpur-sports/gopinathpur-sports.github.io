@@ -150,7 +150,7 @@ header{flex-wrap:nowrap;gap:6px}header>div:first-child{flex:1 1 auto;min-width:0
 .tkt{display:flex;width:max-content;animation:tkm 30s linear infinite;will-change:transform}
 .tkt span{white-space:pre;font-size:14px;padding-right:0}
 .tk.ps .tkt{animation-play-state:paused}
-@keyframes tkm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tkm{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.tkt{animation:none}.tkv{overflow-x:auto}}
 
 /* ---- চ্যাট: স্টিকার, পোল, ভয়েস, ভিডিও, পিন ---- */
@@ -161,6 +161,7 @@ header{flex-wrap:nowrap;gap:6px}header>div:first-child{flex:1 1 auto;min-width:0
 .pin{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 10px 0;padding:6px 10px;border-radius:12px;background:rgba(255,200,60,.12);border:1px solid rgba(255,200,60,.35);font-size:13px}.pin span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
 .dy.nw{color:var(--a);border-color:var(--a)}.cf .ic.rec{background:var(--red);color:#fff;width:auto;padding:0 12px;border-radius:21px}
 .cpn{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 10px 0;padding:10px;border:1px solid var(--bd);border-radius:16px;background:var(--card)}.cpn button{border:0;background:var(--btn);color:var(--tx);border-radius:12px;padding:10px 4px;font:inherit;font-size:12px;cursor:pointer}.cpn button b{display:block;font-size:22px;font-weight:400}.cpn.st{grid-template-columns:repeat(5,1fr)}.cpn.st button{font-size:30px;padding:6px}.cpn.sh2{grid-template-columns:1fr}
+.mo{background:none;border:0;color:inherit;font-size:17px;line-height:1;padding:0 8px 0 0;cursor:pointer;opacity:.8}.tm{display:flex;align-items:center;justify-content:flex-end}
 </style></head><body>
 <div id="bg"><div class="bl"></div><div class="bl"></div></div>
 <header><div style="display:flex;gap:9px;align-items:center;min-width:0"><img src="icon-192.png" width="38" height="38" alt="" style="border-radius:11px;flex:none"><div class="logo"><div class="sub"><span id="nm">গোপীনাথপুর স্পোর্টস</span><button class="mini" id="es" data-a="esite" style="display:none">✎</button></div><small id="tg">VILLAGE SPORTS HUB</small></div></div>
@@ -586,7 +587,7 @@ function msgHtml(x,cont){
   const tm=new Date(x.ts||Date.now()).toLocaleTimeString(gsLoc,{hour:'numeric',minute:'2-digit'});
   const aud=x.aud&&/^data:audio\//.test(x.aud)?`<audio controls preload="none" src="${esc(x.aud)}" style="width:min(240px,60vw);height:40px;margin-top:4px"></audio>`:'';
   const yt=vid?`<div class="yt" data-a="yt" data-v="${vid}"><img loading="lazy" src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt=""><i>▶</i></div>`:'';
-  return `<div class="m ${mine?'me':''} ${cont?'cont':''}">${av}<div class="mb ${sk?'sk':''}" data-a="mact" data-id="${x.id}"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${sk?`<div class="stk">${sk}</div>`:txt?`<div>${txt}</div>`:''}${yt}${aud}${x.poll?pollHtml(x):''}${x.mid?mcardMini(x.mid):''}${im?`<img class="mi" loading="lazy" src="${im}" alt="" data-a="cview" data-id="${x.id}">`:''}${rxs}<span class="tm">${tm}</span></div></div>`;
+  return `<div class="m ${mine?'me':''} ${cont?'cont':''}">${av}<div class="mb ${sk?'sk':''}" data-a="mact" data-id="${x.id}"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${sk?`<div class="stk">${sk}</div>`:txt?`<div>${txt}</div>`:''}${yt}${aud}${x.poll?pollHtml(x):''}${x.mid?mcardMini(x.mid):''}${im?`<img class="mi" loading="lazy" src="${im}" alt="" data-a="cview" data-id="${x.id}">`:''}${rxs}<span class="tm"><button class="mo" data-a="mact" data-id="${x.id}" aria-label="অপশন">⋯</button> ${tm}</span></div></div>`;
 }
 function chatMsgs(){
   const el=$('#cmsgs');if(!el)return;
@@ -691,7 +692,7 @@ function sheet(){
   if(sh.kind==='prof'){profSheet();return}
   if(sh.kind==='poll'){el.innerHTML=`<div class="ov" data-a="shx"><div class="sh"><b style="font-size:17px">📊 নতুন পোল</b><label>প্রশ্ন</label><input id="pl-q" maxlength="120" placeholder="আজ বিকেলে কে আসছে?">${[0,1,2,3].map(i=>`<label>অপশন ${bn(i+1)}${i<2?'':' (ঐচ্ছিক)'}</label><input id="pl-o${i}" maxlength="40">`).join('')}<button class="go" data-a="pollsend" style="width:100%;margin-top:12px">পাঠান</button><button class="ghost" data-a="shclose" style="width:100%;margin-top:6px">বাতিল</button></div></div>`;return}
   if(sh.kind==='yt'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>🎬 ভিডিও</b><button class="mini" data-a="shclose">✕</button></div><div class="cvs" style="align-items:center"><iframe src="https://www.youtube-nocookie.com/embed/${sh.v}?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0"></iframe></div></div>`;return}
-  if(sh.kind==='cview'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>${esc(sh.name)}</b><span><a class="mini" href="${sh.src}" download="gopinathpur-photo.jpg" style="text-decoration:none">⬇ সেভ</a> ${S.admin?'<button class="mini" data-a="togal">🖼️ গ্যালারিতে</button> ':''}<button class="mini" data-a="shclose">✕</button></span></div><div class="cvs"><img src="${sh.src}" alt="" data-a="cvz"></div><div class="cvh">${sh.full?'ট্যাপ করলে জুম হবে · ⬇ চাপলে ছবি সেভ হবে':'⏳ পূর্ণ রেজোলিউশন লোড হচ্ছে…'}</div></div>`;return}
+  if(sh.kind==='cview'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>${esc(sh.name)}</b><span><a class="mini" href="${sh.src}" download="gopinathpur-photo.jpg" style="text-decoration:none">⬇ সেভ</a> ${(()=>{const cx=S.chat.find(y=>y.id===sh.id);return cx&&(S.admin||cx.uid===S.me.id)?'<button class="mini red" data-a="vdel">🗑 মুছুন</button> ':''})()}${S.admin?'<button class="mini" data-a="togal">🖼️ গ্যালারিতে</button> ':''}<button class="mini" data-a="shclose">✕</button></span></div><div class="cvs"><img src="${sh.src}" alt="" data-a="cvz"></div><div class="cvh">${sh.full?'ট্যাপ করলে জুম হবে · ⬇ চাপলে ছবি সেভ হবে':'⏳ পূর্ণ রেজোলিউশন লোড হচ্ছে…'}</div></div>`;return}
   if(sh.kind==='zoom'){el.innerHTML=`<div class="ov" data-a="shx" style="align-items:center"><img data-a="shclose" src="${safeUrl(sh.src)}" style="max-width:96%;max-height:90vh;border-radius:12px" alt=""></div>`;return}
   const def=FORMS[sh.col];
   const fld=def.f.map(([k,lb,ty,op])=>{
@@ -1026,9 +1027,10 @@ document.addEventListener('click',e=>{
   else if(a==='yt'){S.sheet={kind:'yt',v};sheet()}
   else if(a==='togal'&&S.admin&&S.sheet){write(()=>S.db.collection('gallery').add({photo:S.sheet.src,caption:'চ্যাট থেকে — '+(S.sheet.name||''),ts:Date.now()}));toast('🖼️ গ্যালারিতে যোগ হয়েছে')}
   else if(a==='mmc'){S.cs.open=false;const c=$('#chat');if(c)c.remove();S.tab='match';formHtml();render()}
+  else if(a==='vdel'&&S.sheet&&S.sheet.id){const cid=S.sheet.id,cx=S.chat.find(y=>y.id===cid);if(!cx||!confirm('এই ছবি/মেসেজটি মুছে ফেলবেন? মুছলে আর ফেরত আসবে না।'))return;S.sheet=null;sheet();if(cx.fid)S.db.doc('chatimg/'+cx.fid).delete().catch(()=>{});write(()=>S.db.doc('chat/'+cid).delete())}
   else if(a==='mact'){S.del=null;S.cs.act=S.cs.act===id?'':id;chatMsgs()}
   else if(a==='cvz'){b.classList.toggle('z')}
-  else if(a==='cview'){const x=S.chat.find(y=>y.id===id);if(!x||!safeUrl(x.img))return;S.sheet={kind:'cview',src:safeUrl(x.img),name:x.name||'',full:!x.fid};sheet();
+  else if(a==='cview'){const x=S.chat.find(y=>y.id===id);if(!x||!safeUrl(x.img))return;S.sheet={kind:'cview',id:x.id,src:safeUrl(x.img),name:x.name||'',full:!x.fid};sheet();
     if(x.fid)S.db.doc('chatimg/'+x.fid).get().then(d=>{if(d&&d.img&&S.sheet&&S.sheet.kind==='cview'){S.sheet.src=d.img;S.sheet.full=true;sheet()}}).catch(()=>{S.sheet&&S.sheet.kind==='cview'&&(S.sheet.full=true,sheet())})}
   else if(a==='mention'){const i=$('#ci');if(i&&b.dataset.n){i.value+='@'+b.dataset.n.replace(/\s+/g,'_')+' ';i.focus()}}
   else if(a==='reply'){if(needName())return;const x=S.chat.find(y=>y.id===id);if(!x)return;S.cs.reply={id,name:x.name||'সদস্য',text:(x.text||'📷 ছবি').slice(0,60)};crep();const i=$('#ci');if(i)i.focus()}
