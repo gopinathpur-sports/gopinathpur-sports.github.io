@@ -120,6 +120,47 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 4px;t
 @media print{body{max-width:none;background:#fff;color:#111;padding:0}header,#tabs,#fab,#form,#banner,#notes,.chips,.adm,button{display:none!important}.card{break-inside:avoid;border:1px solid #bbb;background:#fff;color:#111;box-shadow:none}#list{display:block}}
 #lgb{font-weight:700;font-size:12px;letter-spacing:.4px;min-width:34px}
 header{flex-wrap:nowrap;gap:6px}header>div:first-child{flex:1 1 auto;min-width:0}.logo{white-space:normal!important;font-size:clamp(12px,3.3vw,17px)}.logo #nm{white-space:normal!important}.logo small{white-space:nowrap}.hb{gap:2px}.hb .ic{padding:3px 4px;font-size:12px}#lgb{min-width:30px;font-size:11px}
+
+/* ---- চ্যাট ২.০ ---- */
+.chat{background:radial-gradient(90% 40% at 85% 0%,rgba(44,245,160,.14),transparent),radial-gradient(80% 40% at 0% 100%,rgba(34,200,255,.10),transparent),var(--bg)}
+.ch{background:rgba(10,24,32,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--bd),0 8px 24px #0004}
+.ch .ct b{font-size:16px}.ch .ct b::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--a);box-shadow:0 0 8px var(--a);margin-right:7px;vertical-align:middle}
+.cm{padding:12px 12px 6px;scroll-behavior:smooth}
+.dy{display:table;margin:14px auto 10px;padding:3px 12px;border-radius:12px;background:var(--btn);border:1px solid var(--bd)}
+.m{margin-bottom:10px;align-items:flex-start}.m.cont{margin-top:-7px}.m.cont .av{visibility:hidden}.m.cont .nm{display:none}
+.mb{border-radius:6px 18px 18px 18px;box-shadow:0 2px 10px #0003;cursor:pointer}.m.cont .mb{border-radius:18px}
+.m.me .mb{border-radius:18px 6px 18px 18px;box-shadow:0 4px 16px rgba(44,245,160,.22)}.m.me.cont .mb{border-radius:18px}
+.mi{width:min(270px,66vw);max-height:360px;object-fit:cover;border-radius:14px;cursor:zoom-in;margin-top:4px;background:var(--in)}
+.rxr{gap:5px;margin-top:6px}.rx{border-radius:14px;padding:2px 8px}
+.rxr.pk{padding-top:6px;border-top:1px dashed rgba(255,255,255,.15)}
+.cf{margin:4px 10px calc(8px + env(safe-area-inset-bottom,0px));padding:6px;border:1px solid var(--bd);border-radius:24px;background:rgba(10,24,32,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.cf input{border:0;background:var(--in);border-radius:20px;padding:10px 14px}
+.cf .go{border-radius:50%;width:42px;height:42px;padding:0;flex:none}.cf .ic{border-radius:50%;width:42px;height:42px;padding:0;flex:none}
+.rp img{height:56px;border-radius:8px}
+.cv{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.94);display:flex;flex-direction:column}
+.cvb{display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;color:#fff}
+.cvs{flex:1;overflow:auto;display:flex;-webkit-overflow-scrolling:touch}
+.cvs img{max-width:100%;max-height:100%;margin:auto;object-fit:contain;cursor:zoom-in}.cvs img.z{max-width:none;max-height:none;width:240%;cursor:zoom-out}
+.cvh{text-align:center;color:#9bb;font-size:12px;padding:8px 0 calc(10px + env(safe-area-inset-bottom,0px))}
+
+/* ---- খবরের মতো চলমান ঘোষণা ---- */
+.tk{display:flex;align-items:stretch;margin-bottom:8px;border:1px solid var(--bd);border-left:4px solid var(--gold);border-radius:12px;overflow:hidden;background:var(--card);cursor:pointer}
+.tkl{flex:none;display:flex;align-items:center;padding:0 10px;font-weight:700;font-size:13px;background:linear-gradient(135deg,var(--gold),#ff9a3c);color:#2b1700;white-space:nowrap}
+.tkv{flex:1;min-width:0;overflow:hidden;padding:9px 0}
+.tkt{display:flex;width:max-content;animation:tkm 30s linear infinite;will-change:transform}
+.tkt span{white-space:pre;font-size:14px;padding-right:0}
+.tk.ps .tkt{animation-play-state:paused}
+@keyframes tkm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tkt{animation:none}.tkv{overflow-x:auto}}
+
+/* ---- চ্যাট: স্টিকার, পোল, ভয়েস, ভিডিও, পিন ---- */
+.mb.sk{background:none!important;border:0!important;box-shadow:none!important;padding:0}.stk{font-size:64px;line-height:1.1}.sg{display:inline-block;padding:10px 16px;border-radius:16px;color:#fff;font-size:20px;background:linear-gradient(135deg,var(--g,#18c06a),#0a5);transform:rotate(-3deg);box-shadow:0 4px 14px #0006}
+.pl{margin-top:6px;display:grid;gap:5px;min-width:200px}.plo{position:relative;overflow:hidden;display:flex;justify-content:space-between;gap:8px;text-align:left;border:1px solid var(--bd);background:var(--btn);color:var(--tx);border-radius:10px;padding:7px 10px;font:inherit;font-size:13px;cursor:pointer}.plo.on{border-color:var(--a)}.plb{position:absolute;inset:0 auto 0 0;background:rgba(44,245,160,.22)}.pll,.plo b{position:relative}
+.yt{position:relative;margin-top:6px;width:min(270px,66vw);border-radius:12px;overflow:hidden;cursor:pointer}.yt img{width:100%;display:block}.yt i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:34px;color:#fff;background:rgba(0,0,0,.35)}
+.mm{margin-top:6px;padding:8px 10px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--bd);min-width:200px;cursor:pointer}.mmv{display:flex;justify-content:space-between;align-items:center;gap:8px}.mmv span{font-weight:800;font-size:18px;color:var(--a)}
+.pin{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 10px 0;padding:6px 10px;border-radius:12px;background:rgba(255,200,60,.12);border:1px solid rgba(255,200,60,.35);font-size:13px}.pin span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.dy.nw{color:var(--a);border-color:var(--a)}.cf .ic.rec{background:var(--red);color:#fff;width:auto;padding:0 12px;border-radius:21px}
+.cpn{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 10px 0;padding:10px;border:1px solid var(--bd);border-radius:16px;background:var(--card)}.cpn button{border:0;background:var(--btn);color:var(--tx);border-radius:12px;padding:10px 4px;font:inherit;font-size:12px;cursor:pointer}.cpn button b{display:block;font-size:22px;font-weight:400}.cpn.st{grid-template-columns:repeat(5,1fr)}.cpn.st button{font-size:30px;padding:6px}.cpn.sh2{grid-template-columns:1fr}
 </style></head><body>
 <div id="bg"><div class="bl"></div><div class="bl"></div></div>
 <header><div style="display:flex;gap:9px;align-items:center;min-width:0"><img src="icon-192.png" width="38" height="38" alt="" style="border-radius:11px;flex:none"><div class="logo"><div class="sub"><span id="nm">গোপীনাথপুর স্পোর্টস</span><button class="mini" id="es" data-a="esite" style="display:none">✎</button></div><small id="tg">VILLAGE SPORTS HUB</small></div></div>
@@ -340,7 +381,11 @@ const delBtn=(c,id)=>`<button class="mini red" data-a="del" data-c="${c}" data-i
 function banner(){
   // ইনস্টল প্রম্পট/ব্যানার বন্ধ রাখা হয়েছে; Chrome-এর নিজস্ব সিস্টেম নোটিফিকেশন ওয়েবপেজ থেকে নিয়ন্ত্রণ করা যায় না।
   $('#banner').innerHTML=navigator.onLine?'':'<div class="note" style="border-left-color:var(--red)"><span>📴 অফলাইন — সংরক্ষিত তথ্য দেখাচ্ছেন</span></div>';
-  $('#notes').innerHTML=[...S.notices].sort((a,b)=>b.ts-a.ts).slice(0,3).map(x=>`<div class="note"><span>📢 ${esc(x.text)}</span>${S.admin?`<span style="white-space:nowrap"><button class="mini" data-a="edit" data-c="notices" data-id="${x.id}">✎</button> ${delBtn('notices',x.id)}</span>`:''}</div>`).join('');
+  const N=[...S.notices].sort((a,b)=>b.ts-a.ts).slice(0,3);
+  if(!N.length)$('#notes').innerHTML='';else{
+    const seg=N.map(x=>esc(x.text)).join('  ✦  ')+'  ✦  ',rp=Math.max(1,Math.ceil(70/seg.length)),half=Array(rp).fill(seg).join(''),dur=Math.max(14,Math.round(half.length*.2*1.0));
+    $('#notes').innerHTML=`<div class="tk" data-a="tkp"><span class="tkl">📢 ঘোষণা</span><div class="tkv"><div class="tkt" style="animation-duration:${dur}s"><span>${half}</span><span>${half}</span></div></div></div>`+
+    (S.admin?N.map(x=>`<div class="note" style="padding:5px 10px;font-size:12px"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">📢 ${esc(x.text)}</span><span style="white-space:nowrap"><button class="mini" data-a="edit" data-c="notices" data-id="${x.id}">✎</button> ${delBtn('notices',x.id)}</span></div>`).join(''):'')}
 }
 function formHtml(){
   const t=S.tab;let h='';
@@ -522,15 +567,26 @@ function render(){
 
 /* ---------- চ্যাট ---------- */
 const dayL=ts=>{const d=new Date(ts),t=new Date(),k=x=>x.toDateString(),y=new Date(t-864e5);return k(d)===k(t)?'আজ':k(d)===k(y)?'গতকাল':d.toLocaleDateString(gsLoc,{day:'numeric',month:'long'})};
-function msgHtml(x){
-  const mine=x.uid&&x.uid===S.me.id,ph=safeUrl(x.photo),im=safeUrl(x.img);
-  const av=ph?`<img class="av" src="${esc(ph)}" referrerpolicy="no-referrer" alt="">`:`<div class="av">${esc((x.name||'?').trim().charAt(0))}</div>`;
-  const txt=esc(x.text||'').replace(/@([^\s@]+)/g,'<span class="mn">@$1</span>');
+const STK=[['ball','⚽'],['cup','🏆'],['fire','🔥'],['clap','👏'],['lol','😂'],['cool','😎'],['pow','💪'],['net','🥅'],['bat','🏏'],['gg','🤝'],['gol','<b class="sg">গোওওওল!</b>'],['wow','<b class="sg" style="--g:#ff6a3d">দারুণ খেলা!</b>'],['hr','<b class="sg" style="--g:#4d7cff">আবার হবে!</b>'],['ok','<b class="sg" style="--g:#a14dff">আসছি ভাই!</b>']];
+const ytId=u=>{const m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/))([\w-]{11})/);return m?m[1]:''};
+const pl1=t=>esc(t).replace(/@([^\s@<]+)/g,'<span class="mn">@$1</span>');
+function richTxt(t){let out='',last=0,vid='';t.replace(/https?:\/\/[^\s<>"']+/g,(u,i)=>{out+=pl1(t.slice(last,i));last=i+u.length;if(!vid)vid=ytId(u);out+=`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">${esc(u.length>38?u.slice(0,36)+'…':u)}</a>`;return u});return [out+pl1(t.slice(last)),vid]}
+function pollHtml(x){const o=x.poll.opts||[],g=i=>(x.reacts&&x.reacts['o'+i])||[],c=o.map((_,i)=>g(i).length),t=c.reduce((a,b)=>a+b,0),my=o.findIndex((_,i)=>g(i).includes(S.me.id));
+  return `<div class="pl">${o.map((l,i)=>`<button class="plo ${my===i?'on':''}" data-a="pv" data-id="${x.id}" data-k="${i}"><span class="plb" style="width:${t?Math.round(c[i]*100/t):0}%"></span><span class="pll">${esc(l)}</span><b>${bn(c[i])}</b></button>`).join('')}<small>${bn(t)} ভোট</small></div>`}
+function mcardMini(id){const m=S.matches.find(y=>y.id===id);if(!m)return '<div class="mut2">ম্যাচটি পাওয়া যায়নি</div>';const ic=(SP[m.sport]||['🎮'])[0];
+  return `<div class="mm" data-a="mmc" data-id="${id}"><div class="mut" style="font-size:11px">${ic} ${m.status==='live'?'🔴 লাইভ':m.status==='done'?'শেষ':'আসন্ন'}</div><div class="mmv"><b>${esc(m.home)}</b><span>${m.status==='upcoming'?'VS':bn(m.hs||0)+' : '+bn(m.as||0)}</span><b>${esc(m.away)}</b></div></div>`}
+function msgHtml(x,cont){
+  const mine=!x.bot&&x.uid&&x.uid===S.me.id,ph=safeUrl(x.photo),im=safeUrl(x.img),open=S.cs.act===x.id;
+  const av=x.bot?'<div class="av">🤖</div>':ph?`<img class="av" src="${esc(ph)}" referrerpolicy="no-referrer" alt="">`:`<div class="av">${esc((x.name||'?').trim().charAt(0))}</div>`;
+  const sk=x.stk?(STK.find(q=>q[0]===x.stk)||[])[1]:'',[txt,vid]=x.stk?['','']:richTxt(x.text||'');
   const rq=x.reply?`<div class="rq"><b>${esc(x.reply.name)}</b>${esc(x.reply.text)}</div>`:'';
-  const rxs=RX.map(([k,e])=>{const l=(x.reacts&&x.reacts[k])||[];return `<button class="rx ${l.includes(S.me.id)?'on':''}" data-a="react" data-id="${x.id}" data-k="${k}">${e}${l.length?' '+bn(l.length):''}</button>`}).join('');
+  const have=RX.filter(([k])=>((x.reacts&&x.reacts[k])||[]).length),btn=([k,e])=>{const l=(x.reacts&&x.reacts[k])||[];return `<button class="rx ${l.includes(S.me.id)?'on':''}" data-a="react" data-id="${x.id}" data-k="${k}">${e}${l.length?' '+bn(l.length):''}</button>`};
+  const muted=(S.extra.mutes||[]).some(q=>q.id===x.uid&&q.until>Date.now());
+  const rxs=(have.length?`<div class="rxr">${have.map(btn).join('')}</div>`:'')+(open?`<div class="rxr pk">${RX.map(btn).join('')}<button class="rx" data-a="reply" data-id="${x.id}">↩</button>${S.admin?`<button class="rx" data-a="pin" data-id="${x.id}">${x.pin?'📌✕':'📌'}</button>`:''}${S.admin&&x.uid&&!mine&&!x.bot?`<button class="rx" data-a="mute" data-id="${x.id}">${muted?'🔊':'🔇'}</button>`:''}${!mine&&!x.bot&&S.user?`<button class="rx" data-a="report" data-id="${x.id}">🚩</button>`:''}${(mine||S.admin)?delBtn('chat',x.id):''}</div>`:'');
   const tm=new Date(x.ts||Date.now()).toLocaleTimeString(gsLoc,{hour:'numeric',minute:'2-digit'});
-  return `<div class="m ${mine?'me':''}">${av}<div class="mb"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${txt?`<div>${txt}</div>`:''}${im?`<img class="mi" src="${im}" alt="">`:''}
-  <div class="rxr">${rxs}<button class="rx" data-a="reply" data-id="${x.id}">↩</button>${(mine||S.admin)?delBtn('chat',x.id):''}</div><span class="tm">${tm}</span></div></div>`;
+  const aud=x.aud&&/^data:audio\//.test(x.aud)?`<audio controls preload="none" src="${esc(x.aud)}" style="width:min(240px,60vw);height:40px;margin-top:4px"></audio>`:'';
+  const yt=vid?`<div class="yt" data-a="yt" data-v="${vid}"><img loading="lazy" src="https://img.youtube.com/vi/${vid}/hqdefault.jpg" alt=""><i>▶</i></div>`:'';
+  return `<div class="m ${mine?'me':''} ${cont?'cont':''}">${av}<div class="mb ${sk?'sk':''}" data-a="mact" data-id="${x.id}"><span class="nm" data-a="mention" data-n="${esc(x.name||'')}">${esc(x.name||'সদস্য')}</span>${rq}${sk?`<div class="stk">${sk}</div>`:txt?`<div>${txt}</div>`:''}${yt}${aud}${x.poll?pollHtml(x):''}${x.mid?mcardMini(x.mid):''}${im?`<img class="mi" loading="lazy" src="${im}" alt="" data-a="cview" data-id="${x.id}">`:''}${rxs}<span class="tm">${tm}</span></div></div>`;
 }
 function chatMsgs(){
   const el=$('#cmsgs');if(!el)return;
@@ -539,34 +595,54 @@ function chatMsgs(){
   $('#cs2').textContent=bn(ms.length)+'টি মেসেজ';
   $('#crm').innerHTML=room==='all'?'':'<button class="mini" data-a="croom">সবার চ্যাট</button>';
   const near=S.cs.stick||el.scrollHeight-el.scrollTop-el.clientHeight<140;
+  const pn=[...ms].reverse().find(x=>x.pin),pe=$('#cpin');if(pe)pe.innerHTML=pn?`<div class="pin"><span data-a="pinj" data-id="${pn.id}">📌 ${esc((pn.text||'📷').slice(0,90))}</span>${S.admin?`<button class="mini" data-a="pin" data-id="${pn.id}">✕</button>`:''}</div>`:'';
   let h='',last='';
-  for(const x of ms){const d=dayL(x.ts);if(d!==last){h+=`<div class="dy">${d}</div>`;last=d}h+=msgHtml(x)}
+  let pv=null,nw=0;for(const x of ms){const d=dayL(x.ts);if(d!==last){h+=`<div class="dy">${d}</div>`;last=d;pv=null}if(!nw&&x.ts>(S.cs.seen0||0)&&x.uid!==S.me.id){nw=1;h+='<div class="dy nw">⬇ নতুন মেসেজ</div>';pv=null}h+=msgHtml(x,pv&&pv.uid&&pv.uid===x.uid&&x.ts-pv.ts<300000&&!x.reply);pv=x}
   el.innerHTML=h||'<div class="empty">প্রথম মেসেজটা আপনিই দিন 👋</div>';
   if(near){el.scrollTop=el.scrollHeight;S.cs.stick=false}
 }
 function crep(){
   const el=$('#crep');if(!el)return;let h='';
   if(S.cs.reply)h+=`<div class="rp"><span>↩ ${esc(S.cs.reply.name)}: ${esc(S.cs.reply.text)}</span><button class="mini" data-a="rmreply">✕</button></div>`;
-  if(S.cs.img)h+=`<div class="rp"><img src="${S.cs.img}" style="height:46px;border-radius:6px" alt=""><button class="mini" data-a="rmimg">✕</button></div>`;
+  if(S.cs.img)h+=`<div class="rp"><img src="${S.cs.img}" alt=""><span style="flex:1;font-size:12px;color:var(--mut)">📷 ছবি পাঠানোর জন্য তৈরি${S.cs.full?' · পূর্ণ মান (HD)':''}</span><button class="mini" data-a="rmimg">✕</button></div>`;
+  const mn=S.cs.menu;
+  if(mn==='plus')h+=`<div class="cpn"><button data-a="cimg"><b>📷</b>ছবি</button><button data-a="cstk"><b>😀</b>স্টিকার</button><button data-a="cpoll"><b>📊</b>পোল</button><button data-a="cshare"><b>🏟️</b>ম্যাচ শেয়ার</button></div>`;
+  if(mn==='stk')h+=`<div class="cpn st">${STK.map(q=>`<button data-a="sstk" data-v="${q[0]}">${q[1]}</button>`).join('')}</div>`;
+  if(mn==='share')h+=`<div class="cpn sh2">${[...S.matches].sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,6).map(m=>`<button data-a="smc" data-id="${m.id}">${esc(m.home)} বনাম ${esc(m.away)}</button>`).join('')||'<span class="mut2">কোনো ম্যাচ নেই</span>'}</div>`;
   el.innerHTML=h;
 }
 function chatFoot(){
   const el=$('#cin');if(!el)return;
-  el.innerHTML=(S.user&&S.approved)?`<div class="cf"><button class="ic" data-a="cimg">📷</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off"><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" hidden>`
+  el.innerHTML=(S.user&&S.approved)?`<div class="cf"><button class="ic" data-a="cplus">＋</button><input id="ci" placeholder="মেসেজ লিখুন..." maxlength="300" autocomplete="off" enterkeyhint="send"><button class="ic" id="cmic" data-a="cmic">🎤</button><button class="go" data-a="csend">➤</button></div><input type="file" id="cfile" accept="image/*" multiple hidden>`
    :`<div class="cf"><button class="go" data-a="login" style="width:100%">${S.user?'⏳ অ্যাডমিন অনুমোদনের অপেক্ষায়':'G&nbsp; সাইন ইন করে চ্যাটে যোগ দিন'}</button></div>`;
   crep();
 }
 function openChat(room){
-  S.cs.open=true;S.cs.room=room||'all';S.cs.stick=true;S.cs.reply=null;
+  S.cs.open=true;S.cs.seen0=+ls.get('gs_cs')||0;S.cs.menu='';S.cs.room=room||'all';S.cs.stick=true;S.cs.reply=null;
   let el=$('#chat');if(!el){el=document.createElement('div');el.id='chat';el.className='chat';document.body.appendChild(el)}
-  el.innerHTML=`<div class="ch"><button class="ic" data-a="cclose">←</button><div class="ct"><b id="ct"></b><small id="cs2"></small></div><span id="crm"></span><button class="ic" data-a="cname" title="নাম বদলান">✎</button></div><div id="cmsgs" class="cm"></div><div class="cq">${QUICK.map(q=>`<button class="chip" data-a="quick" data-v="${q}">${q}</button>`).join('')}</div><div id="crep"></div><div id="cin"></div>`;
+  el.innerHTML=`<div class="ch"><button class="ic" data-a="cclose">←</button><div class="ct"><b id="ct"></b><small id="cs2"></small></div><span id="crm"></span><button class="ic" data-a="cname" title="নাম বদলান">✎</button></div><div id="cpin"></div><div id="cmsgs" class="cm"></div><div class="cq">${QUICK.map(q=>`<button class="chip" data-a="quick" data-v="${q}">${q}</button>`).join('')}</div><div id="crep"></div><div id="cin"></div>`;
   chatFoot();render();
 }
-function sendChat(text,img){
+async function sendChat(text,img,full,ex){
+  try{const mu=await S.db.doc('mutes/'+S.me.id).get();if(mu&&mu.until>Date.now()){toast('🔇 আপনাকে সাময়িক মিউট করা হয়েছে');return}}catch(e){}
   const o={text,name:S.me.name,uid:S.me.id,photo:S.me.photo||'',ts:Date.now(),room:S.cs.room};
-  if(img)o.img=img;if(S.cs.reply)o.reply=S.cs.reply;
-  S.cs.reply=null;S.cs.img='';S.cs.stick=true;crep();
+  if(img)o.img=img;if(S.cs.reply)o.reply=S.cs.reply;if(ex)Object.assign(o,ex);
+  S.cs.reply=null;S.cs.img='';S.cs.full='';S.cs.menu='';S.cs.stick=true;crep();
+  try{if(img&&full){const r=await S.db.collection('chatimg').add({img:full,uid:S.me.id,ts:Date.now()});o.fid=r.id}}catch(e){}
   write(()=>S.db.collection('chat').add(o));
+}
+let rec=null;
+async function toggleRec(){
+  if(rec){rec.stop();return}if(needName())return;
+  try{const st=await navigator.mediaDevices.getUserMedia({audio:true}),mt=['audio/webm;codecs=opus','audio/webm','audio/mp4'].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t));
+    if(!mt){st.getTracks().forEach(t=>t.stop());toast('এই ফোনে ভয়েস রেকর্ড সাপোর্ট নেই');return}
+    const r=new MediaRecorder(st,{mimeType:mt,audioBitsPerSecond:24000}),ch=[],t0=Date.now();let tk,tm;rec=r;
+    r.ondataavailable=e=>{if(e.data.size)ch.push(e.data)};
+    r.onstop=()=>{clearTimeout(tm);clearInterval(tk);st.getTracks().forEach(t=>t.stop());rec=null;const b=$('#cmic');if(b){b.textContent='🎤';b.classList.remove('rec')}
+      if(Date.now()-t0<800)return;const fr=new FileReader();fr.onload=()=>{if(fr.result.length>290000){toast('ভয়েস অনেক বড়');return}sendChat('🎤 ভয়েস মেসেজ','','',{aud:fr.result})};fr.readAsDataURL(new Blob(ch,{type:mt}))};
+    r.start();const b=$('#cmic');if(b)b.classList.add('rec');
+    tk=setInterval(()=>{const q=$('#cmic');if(q)q.textContent='⏹ '+Math.floor((Date.now()-t0)/1000)+'s'},400);tm=setTimeout(()=>r.stop(),30000);
+  }catch(e){toast('মাইক্রোফোনের অনুমতি দিন')}
 }
 function needName(){if(!S.user){openLogin();return true}if(!S.approved){S.sheet={kind:'pending'};sheet();return true}if(!S.me.name){S.sheet={kind:'name',d:{name:S.user.displayName||''}};sheet();return true}return false}
 function readImg(file,max,q){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',q))};im.onerror=rej;im.src=fr.result};fr.onerror=rej;fr.readAsDataURL(file)})}
@@ -586,7 +662,7 @@ function adList(){
   const admins=S.owner?(l.length?l.map(a=>`<div class="row"><div>${esc(a.id)}${a.by?`<small>যোগ করেছেন: ${esc(a.by)}</small>`:''}</div>${delBtn('admins',a.id)}</div>`).join(''):'<div class="empty">এখনো কোনো অতিরিক্ত অ্যাডমিন নেই</div>'):'';
   const pending=(S.requests||[]).filter(r=>r.status==='pending'),mem=(X.users||[]).filter(u=>u.approved===true);
   el.innerHTML=`<label>সাইন-ইন অনুমোদনের অনুরোধ</label>${pending.length?pending.map(r=>`<div class="row"><div><b>${esc(r.name||r.email||'সদস্য')}</b><small>${esc(r.email||'')} · ${r.ts?new Date(r.ts).toLocaleDateString(gsLoc):''}</small></div><span style="white-space:nowrap"><button class="mini" data-a="approve" data-id="${r.id}">✓ গ্রহণ</button> <button class="mini red" data-a="reject" data-id="${r.id}">✕</button></span></div>`).join(''):'<div class="empty">নতুন কোনো অনুরোধ নেই</div>'}
-  <label>অনুমোদিত সদস্য (সরানো ও স্কোরার রোল)</label>${mem.length?mem.map(u=>`<div class="row"><div><b>${esc(u.name||u.email||'সদস্য')}</b><small>${esc(u.email||'')}</small></div><span style="white-space:nowrap"><button class="mini ${sc(u.email)?'go':''}" data-a="scorer" data-v="${esc(u.email||'')}">🎯 স্কোরার</button> <button class="mini red" data-a="unapprove" data-id="${u.id}">${S.del==='unap'+u.id?'নিশ্চিত?':'সরান'}</button></span></div>`).join(''):'<div class="empty">কোনো সদস্য নেই</div>'}${S.owner?`<label>অতিরিক্ত অ্যাডমিন</label>${admins}`:''}`;
+  <label>🚩 রিপোর্ট করা মেসেজ</label>${(X.reports||[]).length?X.reports.map(r=>`<div class="row"><div>${esc(r.text||'')}<small>${esc(r.name||'')} · রিপোর্ট: ${esc(r.by||'')}</small></div><span style="white-space:nowrap"><button class="mini red" data-a="del" data-c="chat" data-id="${esc(r.mid)}">মেসেজ মুছুন</button> ${delBtn('reports',r.id)}</span></div>`).join(''):'<div class="empty">কোনো রিপোর্ট নেই</div>'}<label>অনুমোদিত সদস্য (সরানো ও স্কোরার রোল)</label>${mem.length?mem.map(u=>`<div class="row"><div><b>${esc(u.name||u.email||'সদস্য')}</b><small>${esc(u.email||'')}</small></div><span style="white-space:nowrap"><button class="mini ${sc(u.email)?'go':''}" data-a="scorer" data-v="${esc(u.email||'')}">🎯 স্কোরার</button> <button class="mini red" data-a="unapprove" data-id="${u.id}">${S.del==='unap'+u.id?'নিশ্চিত?':'সরান'}</button></span></div>`).join(''):'<div class="empty">কোনো সদস্য নেই</div>'}${S.owner?`<label>অতিরিক্ত অ্যাডমিন</label>${admins}`:''}`;
 }
 function sheet(){
   const sh=S.sheet,el=$('#sheet');
@@ -613,6 +689,9 @@ function sheet(){
   if(sh.kind==='vote'){voteSheet(sh.k);return}
   if(sh.kind==='info'){el.innerHTML=`<div class="ov" data-a="shx"><div class="sh"><div style="white-space:pre-wrap;line-height:1.8">${esc(sh.t)}</div><button class="go" data-a="shclose" style="width:100%;margin-top:12px">বন্ধ করুন</button></div></div>`;return}
   if(sh.kind==='prof'){profSheet();return}
+  if(sh.kind==='poll'){el.innerHTML=`<div class="ov" data-a="shx"><div class="sh"><b style="font-size:17px">📊 নতুন পোল</b><label>প্রশ্ন</label><input id="pl-q" maxlength="120" placeholder="আজ বিকেলে কে আসছে?">${[0,1,2,3].map(i=>`<label>অপশন ${bn(i+1)}${i<2?'':' (ঐচ্ছিক)'}</label><input id="pl-o${i}" maxlength="40">`).join('')}<button class="go" data-a="pollsend" style="width:100%;margin-top:12px">পাঠান</button><button class="ghost" data-a="shclose" style="width:100%;margin-top:6px">বাতিল</button></div></div>`;return}
+  if(sh.kind==='yt'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>🎬 ভিডিও</b><button class="mini" data-a="shclose">✕</button></div><div class="cvs" style="align-items:center"><iframe src="https://www.youtube-nocookie.com/embed/${sh.v}?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0"></iframe></div></div>`;return}
+  if(sh.kind==='cview'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>${esc(sh.name)}</b><span><a class="mini" href="${sh.src}" download="gopinathpur-photo.jpg" style="text-decoration:none">⬇ সেভ</a> ${S.admin?'<button class="mini" data-a="togal">🖼️ গ্যালারিতে</button> ':''}<button class="mini" data-a="shclose">✕</button></span></div><div class="cvs"><img src="${sh.src}" alt="" data-a="cvz"></div><div class="cvh">${sh.full?'ট্যাপ করলে জুম হবে · ⬇ চাপলে ছবি সেভ হবে':'⏳ পূর্ণ রেজোলিউশন লোড হচ্ছে…'}</div></div>`;return}
   if(sh.kind==='zoom'){el.innerHTML=`<div class="ov" data-a="shx" style="align-items:center"><img data-a="shclose" src="${safeUrl(sh.src)}" style="max-width:96%;max-height:90vh;border-radius:12px" alt=""></div>`;return}
   const def=FORMS[sh.col];
   const fld=def.f.map(([k,lb,ty,op])=>{
@@ -657,8 +736,9 @@ document.addEventListener('change',async e=>{
   if(e.target.id==='sh-sport'&&S.sheet&&S.sheet.col==='matches'){keepSheet();sheet();return}
   if(e.target.id==='sh-photo'&&e.target.files[0]&&S.sheet&&FORMS[S.sheet.col]){S.sheet.photo=S.sheet.col==='gallery'?await readImg(e.target.files[0],900,.7):await readPhoto(e.target.files[0]);const keep={};for(const [k,,ty] of FORMS[S.sheet.col].f){if(ty!=='photo'&&ty!=='pic'){const x=$('#sh-'+k);if(x)keep[k]=x.value}}Object.assign(S.sheet.d,keep);sheet()}
   if(e.target.id==='cfile'&&e.target.files[0]){
-    try{let d=await readImg(e.target.files[0],640,.65);if(d.length>190000)d=await readImg(e.target.files[0],420,.5);
-      if(d.length>190000)toast('ছবিটি অনেক বড়, ছোট ছবি দিন');else{S.cs.img=d;crep()}}catch(x){toast('ছবি পড়া যায়নি')}
+    try{const fs=[...e.target.files].slice(0,6),enc=async f=>{let t=await readImg(f,720,.72);if(t.length>190000)t=await readImg(f,560,.6);if(t.length>190000)t=await readImg(f,420,.5);let F='';for(const [mx,q] of [[1600,.8],[1280,.75],[1024,.7],[800,.65]]){F=await readImg(f,mx,q);if(F.length<=650000)break}return [t,F]};
+      if(fs.length===1){const [t,F]=await enc(fs[0]);if(t.length>190000||F.length>650000)toast('ছবিটি অনেক বড়, ছোট ছবি দিন');else{S.cs.img=t;S.cs.full=F;S.cs.menu='';crep()}}
+      else{toast('📷 '+bn(fs.length)+'টি ছবি পাঠানো হচ্ছে…');S.cs.menu='';for(const f of fs){const [t,F]=await enc(f);if(t.length>190000||F.length>650000){toast('একটি ছবি অনেক বড় ছিল');continue}await sendChat('',t,F)}}}catch(x){toast('ছবি পড়া যায়নি')}
     e.target.value='';
   }
 });
@@ -727,6 +807,7 @@ function addEvent(m,o){
   if(df[3]){const fl=fr==='home'?'hs':'as';up[fl]=Math.max(0,up[fl]+df[3])}
   if(up0){up.status='live';up.startedAt=Date.now()}
   toast(df[1]+' '+o.name,df[2]);write(()=>S.db.doc('matches/'+m.id).update(up));
+  if(['goal','pen','og','yellow','red'].includes(k)&&!o.inn)S.db.collection('chat').add({text:`${df[1]} ${ev.min?bn(ev.min)+'′ ':''}${o.name} — ${df[2]} · ${m.home} ${bn(up.hs)}–${bn(up.as)} ${m.away}`,name:'স্কোরবট',uid:S.me.id,photo:'',bot:1,ts:Date.now(),room:m.id}).catch(()=>{});
   S.db.collection('commentary').add({text:`${df[1]} ${ev.min?bn(ev.min)+'′ ':''}${o.name} — ${df[2]} (${m.home} ${bn(up.hs)}–${bn(up.as)} ${m.away})`,match:m.home+' বনাম '+m.away,ts:Date.now(),auto:1}).catch(()=>{});
 }
 function delEv(id){const m=S.sheet&&S.matches.find(x=>x.id===S.sheet.mid),e=m&&(m.events||[]).find(x=>x.id===id);if(!e)return;
@@ -827,7 +908,7 @@ function duesCard(){
 let exU=[],exKey='';
 function syncExtra(){
   if(!S.db)return;const fo=cfgOf('fund').show===true,key=[S.me.id,S.admin,S.approved,S.scorer,fo].join();if(key===exKey)return;exKey=key;exU.forEach(f=>f());exU=[];
-  const cs=['tournaments','teams','commentary','reminders'];if(S.user&&S.approved)cs.push('predictions','votes','rsvps');if(S.admin)cs.push('registrations','adminlogs','scorers','users');if(S.user&&S.approved&&(S.admin||fo))cs.push('receipts','dues');
+  const cs=['tournaments','teams','commentary','reminders'];if(S.user&&S.approved)cs.push('predictions','votes','rsvps');if(S.admin)cs.push('registrations','adminlogs','scorers','users','mutes','reports');if(S.user&&S.approved&&(S.admin||fo))cs.push('receipts','dues');
   ['predictions','votes','rsvps','registrations','adminlogs','scorers','users','receipts','dues'].forEach(c=>{if(!cs.includes(c))S.extra[c]=[]});
   cs.forEach(c=>exU.push(S.db.collection(c).onSnapshot(sn=>{S.extra[c]=sn.docs.map(d=>({id:d.id,...d.data()}));render()},()=>{S.extra[c]=[]})));
 }
@@ -876,7 +957,8 @@ document.addEventListener('click',e=>{
   else if(a==='rmphoto'){S.sheet.photo='';sheet()}
   else if(a==='g'&&m){const f=b.dataset.s,nv=Math.max(0,(m[f]||0)+(+b.dataset.d)),up0=m.status==='upcoming';write(()=>S.db.doc('matches/'+id).update({[f]:nv,hs:f==='hs'?nv:(m.hs||0),as:f==='as'?nv:(m.as||0),status:up0?'live':m.status,...(up0?{startedAt:Date.now()}:{})}))}
   else if(a==='st'&&m)write(()=>S.db.doc('matches/'+id).update({status:v,hs:m.hs||0,as:m.as||0,...(v==='live'?{startedAt:m.startedAt||Date.now()}:{}),...(v==='done'?{doneAt:Date.now()}:{})}));
-  else if(a==='del'){const c=b.dataset.c,k=c+id;if(S.del===k){S.del=null;write(()=>S.db.doc(c+'/'+id).delete())}else{S.del=k;render()}}
+  else if(a==='del'&&b.dataset.c==='chat'){S.del=null;if(!confirm('এই মেসেজটি মুছে ফেলবেন? মুছলে আর ফেরত আসবে না।'))return;const cx=S.chat.find(y=>y.id===id);if(cx&&cx.fid)S.db.doc('chatimg/'+cx.fid).delete().catch(()=>{});S.cs.act='';write(()=>S.db.doc('chat/'+id).delete())}
+  else if(a==='del'){const c=b.dataset.c,k=c+id;if(S.del===k){S.del=null;if(c==='chat'){const cx=S.chat.find(y=>y.id===id);if(cx&&cx.fid)S.db.doc('chatimg/'+cx.fid).delete().catch(()=>{})}write(()=>S.db.doc(c+'/'+id).delete())}else{S.del=k;render();setTimeout(()=>{if(S.del===k){S.del=null;render()}},4000)}}
   else if(a==='about'){S.sheet={kind:'about'};sheet()}
   else if(a==='edabout'&&S.owner){S.sheet={kind:'devedit',err:''};sheet()}
   else if(a==='savedev'&&S.owner){
@@ -926,7 +1008,28 @@ document.addEventListener('click',e=>{
   else if(a==='cclose'){S.cs.open=false;S.cs.reply=null;const c=$('#chat');if(c)c.remove();render()}
   else if(a==='cimg'){if(needName())return;const f=$('#cfile');if(f)f.click()}
   else if(a==='rmreply'){S.cs.reply=null;crep()}
-  else if(a==='rmimg'){S.cs.img='';crep()}
+  else if(a==='rmimg'){S.cs.img='';S.cs.full='';crep()}
+  else if(a==='tkp'){b.classList.toggle('ps')}
+  else if(a==='cplus'){S.cs.menu=S.cs.menu==='plus'?'':'plus';crep()}
+  else if(a==='cstk'){S.cs.menu='stk';crep()}
+  else if(a==='cshare'){S.cs.menu='share';crep()}
+  else if(a==='cmic')toggleRec();
+  else if(a==='sstk'){if(needName())return;sendChat('স্টিকার','','',{stk:v})}
+  else if(a==='smc'){if(needName())return;const mm=S.matches.find(x=>x.id===id);if(mm)sendChat('🏟️ '+mm.home+' বনাম '+mm.away,'','',{mid:id})}
+  else if(a==='cpoll'){if(needName())return;S.cs.menu='';crep();S.sheet={kind:'poll'};sheet()}
+  else if(a==='pollsend'){const q=($('#pl-q')||{}).value.trim(),o=[0,1,2,3].map(i=>(($('#pl-o'+i)||{}).value||'').trim()).filter(Boolean);if(!q||o.length<2){toast('প্রশ্ন ও কমপক্ষে ২টি অপশন দিন');return}S.sheet=null;sheet();sendChat(q,'','',{poll:{opts:o}})}
+  else if(a==='pv'){if(needName())return;const x=S.chat.find(y=>y.id===id);if(!x||!x.poll)return;const me=S.me.id,k='o'+b.dataset.k;write(async()=>{for(let i=0;i<x.poll.opts.length;i++){const kk='o'+i,has=((x.reacts&&x.reacts[kk])||[]).includes(me);if(kk!==k&&has)await S.db.doc('chat/'+id).react(kk,me,false)}if(!((x.reacts&&x.reacts[k])||[]).includes(me))await S.db.doc('chat/'+id).react(k,me,true)})}
+  else if(a==='pin'&&S.admin){const x=S.chat.find(y=>y.id===id);if(x)write(()=>S.db.doc('chat/'+id).update({pin:!x.pin}))}
+  else if(a==='pinj'){const t=document.querySelector('[data-a="mact"][data-id="'+id+'"]');if(t)t.scrollIntoView({block:'center',behavior:'smooth'})}
+  else if(a==='mute'&&S.admin){const x=S.chat.find(y=>y.id===id);if(!x||!x.uid)return;const on=(S.extra.mutes||[]).some(q=>q.id===x.uid&&q.until>Date.now());if(!on&&!confirm((x.name||'এই সদস্য')+' কে ২৪ ঘণ্টার জন্য মিউট করবেন?'))return;write(()=>on?S.db.doc('mutes/'+x.uid).delete():S.db.doc('mutes/'+x.uid).set({name:x.name||'',until:Date.now()+864e5,by:S.me.name||''}))}
+  else if(a==='report'){const x=S.chat.find(y=>y.id===id);if(!x)return;if(!confirm('এই মেসেজটি অ্যাডমিনের কাছে রিপোর্ট করবেন?'))return;write(()=>S.db.collection('reports').add({mid:id,text:(x.text||'📷').slice(0,100),name:x.name||'',by:S.me.name||'',uid:S.me.id,ts:Date.now()}));toast('🚩 রিপোর্ট পাঠানো হয়েছে')}
+  else if(a==='yt'){S.sheet={kind:'yt',v};sheet()}
+  else if(a==='togal'&&S.admin&&S.sheet){write(()=>S.db.collection('gallery').add({photo:S.sheet.src,caption:'চ্যাট থেকে — '+(S.sheet.name||''),ts:Date.now()}));toast('🖼️ গ্যালারিতে যোগ হয়েছে')}
+  else if(a==='mmc'){S.cs.open=false;const c=$('#chat');if(c)c.remove();S.tab='match';formHtml();render()}
+  else if(a==='mact'){S.del=null;S.cs.act=S.cs.act===id?'':id;chatMsgs()}
+  else if(a==='cvz'){b.classList.toggle('z')}
+  else if(a==='cview'){const x=S.chat.find(y=>y.id===id);if(!x||!safeUrl(x.img))return;S.sheet={kind:'cview',src:safeUrl(x.img),name:x.name||'',full:!x.fid};sheet();
+    if(x.fid)S.db.doc('chatimg/'+x.fid).get().then(d=>{if(d&&d.img&&S.sheet&&S.sheet.kind==='cview'){S.sheet.src=d.img;S.sheet.full=true;sheet()}}).catch(()=>{S.sheet&&S.sheet.kind==='cview'&&(S.sheet.full=true,sheet())})}
   else if(a==='mention'){const i=$('#ci');if(i&&b.dataset.n){i.value+='@'+b.dataset.n.replace(/\s+/g,'_')+' ';i.focus()}}
   else if(a==='reply'){if(needName())return;const x=S.chat.find(y=>y.id===id);if(!x)return;S.cs.reply={id,name:x.name||'সদস্য',text:(x.text||'📷 ছবি').slice(0,60)};crep();const i=$('#ci');if(i)i.focus()}
   else if(a==='react'){if(!S.user||!S.approved){if(S.user){S.sheet={kind:'pending'};sheet()}else openLogin();return}const x=S.chat.find(y=>y.id===id),k=b.dataset.k;if(!x)return;
@@ -935,7 +1038,7 @@ document.addEventListener('click',e=>{
     if(needName())return;
     const inp=$('#ci'),t=a==='quick'?v:(inp?inp.value.trim():'');
     if(!t&&!(a==='csend'&&S.cs.img))return;
-    sendChat(t,a==='csend'?S.cs.img:'');if(a==='csend'&&inp)inp.value='';
+    sendChat(t,a==='csend'?S.cs.img:'',a==='csend'?S.cs.full:'');if(a==='csend'&&inp)inp.value='';
   }
 });
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()});
