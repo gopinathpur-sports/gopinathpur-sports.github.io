@@ -1117,7 +1117,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.dip=e;render()})
   }catch(e){S.err='ইন্টারনেট সংযোগ নেই বা সার্ভার লোড হয়নি';render()}
 })();
 </script>
-<style>.ic{display:inline-flex;width:1.15em;height:1.15em;vertical-align:-.2em;color:inherit}.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}</style>
+<style>.dg{display:inline-flex;width:1.15em;height:1.15em;vertical-align:-.2em;color:inherit;flex:none}.dg svg{width:100%;height:100%;overflow:visible;fill:none;stroke:url(#dgG);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 2.5px rgba(44,245,160,.55))}.dg .gw{stroke-width:4.4;opacity:.2}:root[data-theme="light"] .dg svg{filter:none}:is(.go,.chip.on,#fab,.inst,.m.me .mb,.pa,.av,.ma,.tkl,.lv,.pn,.sg,.cf .rec,.yt i,.cv,.red,#tabs button:not(.on)) .dg svg{stroke:currentColor;filter:none}:is(.go,.chip.on,#fab,.inst,.m.me .mb,.pa,.av,.ma,.tkl,.lv,.pn,.sg,.cf .rec,.yt i,.cv,.red,#tabs button:not(.on)) .dg .gw{display:none}#tabs button.on .dg svg{filter:drop-shadow(0 0 5px var(--a))}.dg[data-e="🟨"] svg{filter:drop-shadow(0 0 4px #facc15)}.dg[data-e="🟥"] svg,.dg[data-e="🔴"] svg{filter:drop-shadow(0 0 4px #ff5d73)}.hb .dg{font-size:16px}</style>
 <script>
 (function(){
 var c=function(x,y,r){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'"/>'},p=function(d){return '<path d="'+d+'"/>'},rc=function(x,y,w,h,r){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+r+'"/>'};
@@ -1140,13 +1140,28 @@ var I={'⚽':c(12,12,9)+p('M12 8l3.5 2.5-1.3 4H9.8l-1.3-4zM12 8V3M15.5 10.5l5-1.
 '🏟':p('M3 18V9c0-2 4-4 9-4s9 2 9 4v9M3 13h18M8 18v-5M16 18v-5'),'💰':c(12,12,9)+p('M14.5 9c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5 1-2.5 2s1 1.7 2.5 2 2.5 1 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6v2M12 16v2'),
 '⚙':c(12,12,3)+p('M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2'),'🔊':p('M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6'),'🔇':p('M4 9v6h4l5 4V5L8 9zM17 9l4 6M21 9l-4 6'),
 '✉':rc(3,5,18,14,2)+p('M3 7l9 6 9-6'),'📞':p('M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z'),'🗑':p('M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6'),'🎤':rc(9,3,6,11,3)+p('M5 11a7 7 0 0 0 14 0M12 18v3')};
+
+var X={'✎':p('M4 20l1-4L16 5l3 3L8 19zM14 7l3 3'),'✕':p('M6 6l12 12M18 6L6 18'),'❌':'<g stroke="#ff5d73">'+p('M6 6l12 12M18 6L6 18')+'</g>',
+'↩':p('M9 7L4 12l5 5M4 12h11a5 5 0 0 1 5 5v1'),'⬇':p('M12 4v12M7 11l5 5 5-5M5 20h14'),'⬆':p('M12 20V8M7 13l5-5 5 5M5 4h14'),'▶':p('M7 4l13 8-13 8z'),
+'➤':p('M21 3L3 11l7 2 2 7zM10 13l11-10'),'✓':p('M5 12l5 5 9-10'),'＋':p('M12 5v14M5 12h14'),'⋯':c(5,12,1)+c(12,12,1)+c(19,12,1),
+'🎮':rc(2,8,20,10,5)+p('M7 11v4M5 13h4M16 12h.01M18.5 14h.01'),'🅰':rc(3,3,18,18,4)+p('M8 17l4-10 4 10M9.5 13.5h5'),
+'🤝':p('M2 11l5-4 4 1 4-1 5 4M7 7l-5 4 7 8c1 1 2 1 3 0M17 7l5 4-6 7'),'📲':rc(6,2,12,20,2)+p('M10 18h4M12 7v6M9.5 10.5L12 13l2.5-2.5'),
+'🚫':c(12,12,9)+p('M5.6 5.6l12.8 12.8'),'⛔':'<g stroke="#ff5d73">'+c(12,12,9)+p('M7 12h10')+'</g>',
+'🙈':p('M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z')+c(12,12,3)+p('M4 4l16 16'),'👁':p('M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z')+c(12,12,3),
+'🗳':rc(4,13,16,8,2)+p('M9 13V4h6v9M11 8h2'),'🤖':rc(4,8,16,12,3)+c(9,14,1.2)+c(15,14,1.2)+p('M12 8V4M9 4h6M2 13v3M22 13v3'),
+'💪':p('M5 18c0-6 3-9 7-9 3 0 4 2 4 4l3-1v5c0 2-2 4-5 4H8c-2 0-3-1-3-3z'),'⚠':p('M12 3l10 18H2zM12 10v5M12 18h.01'),'⏹':rc(6,6,12,12,2),
+'ℹ':c(12,12,9)+p('M12 11v6M12 7.5h.01'),'◐':c(12,12,9)+'<path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>','←':p('M19 12H5M11 6l-6 6 6 6'),
+'🔁':p('M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3'),'✨':p('M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z'),
+'❤':p('M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z')};
+for(var k in X)I[k]=X[k];
 var ks=Object.keys(I).sort(function(a,b){return b.length-a.length}),RE=new RegExp('('+ks.join('|')+')\\uFE0F?','g'),SK={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,OPTION:1,TITLE:1};
 function conv(t){var s=t.nodeValue;RE.lastIndex=0;if(!RE.test(s))return;RE.lastIndex=0;var f=document.createDocumentFragment(),i=0,m;
- while((m=RE.exec(s))){if(m.index>i)f.appendChild(document.createTextNode(s.slice(i,m.index)));var e=document.createElement('span');e.className='ic';e.setAttribute('data-e',m[1]);e.setAttribute('aria-hidden','true');e.innerHTML='<svg viewBox="0 0 24 24">'+I[m[1]]+'</svg>';f.appendChild(e);i=m.index+m[0].length}
+ while((m=RE.exec(s))){if(m.index>i)f.appendChild(document.createTextNode(s.slice(i,m.index)));var e=document.createElement('span');e.className='dg';e.setAttribute('data-e',m[1]);e.setAttribute('aria-hidden','true');var mk=I[m[1]];e.innerHTML='<svg viewBox="0 0 24 24">'+(mk.indexOf('fill=')<0?'<g class="gw">'+mk+'</g>':'')+mk+'</svg>';f.appendChild(e);i=m.index+m[0].length}
  if(i<s.length)f.appendChild(document.createTextNode(s.slice(i)));t.parentNode.replaceChild(f,t)}
-function walk(n){if(n.nodeType===3){if(n.parentNode&&!SK[n.parentNode.nodeName])conv(n);return}if(n.nodeType!==1||SK[n.nodeName]||n.classList.contains('ic'))return;
- var w=document.createTreeWalker(n,4,null),L=[],x;while((x=w.nextNode())){if(!SK[x.parentNode.nodeName]&&!x.parentNode.closest('.ic'))L.push(x)}L.forEach(conv)}
+function walk(n){if(n.nodeType===3){if(n.parentNode&&!SK[n.parentNode.nodeName])conv(n);return}if(n.nodeType!==1||SK[n.nodeName]||n.classList.contains('dg'))return;
+ var w=document.createTreeWalker(n,4,null),L=[],x;while((x=w.nextNode())){if(!SK[x.parentNode.nodeName]&&!x.parentNode.closest('.dg'))L.push(x)}L.forEach(conv)}
 var q=[],pend=0,mo=new MutationObserver(function(ms){ms.forEach(function(r){r.addedNodes.forEach(function(n){q.push(n)})});if(!pend&&q.length){pend=1;requestAnimationFrame(function(){pend=0;var a=q;q=[];a.forEach(function(n){if(n.isConnected)walk(n)});mo.takeRecords()})}});
+var gd=document.createElement('div');gd.style.cssText='position:absolute;width:0;height:0;overflow:hidden';gd.innerHTML='<svg width="0" height="0" aria-hidden="true"><defs><linearGradient id="dgG" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" style="stop-color:var(--a)"/><stop offset="1" style="stop-color:var(--b)"/></linearGradient></defs></svg>';document.body.appendChild(gd);
 walk(document.body);mo.observe(document.body,{childList:true,subtree:true});
 })();
 </script>
