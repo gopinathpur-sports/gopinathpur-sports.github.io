@@ -1,4 +1,4 @@
-const C='gs-v4',OK=/^(www|fonts)\.gstatic\.com$|^fonts\.googleapis\.com$/;
+const C='gs-v7',OK=/^(www|fonts)\.gstatic\.com$|^fonts\.googleapis\.com$/;
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','index.html'])).catch(()=>{}))});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
