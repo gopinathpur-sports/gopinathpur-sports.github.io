@@ -51,7 +51,7 @@ header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:cen
 .vs b{font-size:16px}
 .sc{font-family:Orbitron,sans-serif;font-size:22px;font-weight:800;color:var(--a);min-width:96px;background:rgba(0,0,0,.32);border:1px solid var(--bd);border-radius:12px;padding:6px 10px;text-shadow:0 0 12px var(--a);letter-spacing:2px}
 :root[data-theme="light"] .sc{background:rgba(0,0,0,.06);text-shadow:none}
-.sc.bump{animation:bump .6s}
+.sc.bump{animation:bump .6s}.crsc{display:inline-block;font-size:13px;line-height:1.55;letter-spacing:0}.crsc small{font-size:10px;color:var(--mut);white-space:nowrap}.crsc i{font-style:normal;color:var(--gold);padding:0 3px}
 @keyframes bump{30%{transform:scale(1.25)}100%{transform:scale(1)}}
 .mut{color:var(--mut);font-size:13px;text-align:center;margin-top:8px}
 .adm{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center}
@@ -403,12 +403,13 @@ function formHtml(){
 function mcard(m){
   const [ic,nm]=SP[m.sport]||['🎮',m.sport],st=m.status,n=S.chat.filter(c=>c.room===m.id).length;
   const badge=st==='live'?'<span class="lv">● লাইভ</span>':st==='done'?'<span class="dn">শেষ</span>':'<span class="up">আসন্ন</span>';
-  const sc=st==='upcoming'?'VS':(m.hs||0)+' : '+(m.as||0);
+  const isCr=m.sport==='cricket'||m.sport==='shortpitch';
+  const ci=isCr?crCalc(m):{}, innings=[ci[1],ci[2]], scoreFor=t=>{const x=innings.find(z=>z&&z.team===t);return x?bn(x.runs)+'/'+bn(x.wk)+' <small>('+bn(ov(x.balls))+')</small>':'—'};
+  const sc=st==='upcoming'?'VS':isCr?'<span class="crsc">'+scoreFor('home')+' <i>:</i> '+scoreFor('away')+'</span>':(m.hs||0)+' : '+(m.as||0);
   const bump=S.bump[m.id]&&Date.now()-S.bump[m.id]<1500?' bump':'';
-  const isCr=m.sport==='cricket'||m.sport==='shortpitch';const balls=(m.events||[]).filter(e=>/^r[0-6]$/.test(e.k)||['wk','wd','nb','bye'].includes(e.k)).length;const overTxt=isCr&&st!=='upcoming'?' · ওভার '+Math.floor(balls/6)+'.'+(balls%6):'';
-  const a=S.admin?`<div class="adm"><button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="-1">${esc(m.home)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="1">${esc(m.home)} +</button>
-  <button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="-1">${esc(m.away)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="1">${esc(m.away)} +</button>
-  <button class="go" style="padding:5px 12px" data-a="ev" data-id="${m.id}">${m.sport==='cricket'||m.sport==='shortpitch'?'🏏 স্কোর করুন':'⚡ ইভেন্ট'}</button><button class="mini" data-a="st" data-id="${m.id}" data-v="live">লাইভ</button><button class="mini" data-a="st" data-id="${m.id}" data-v="done">শেষ</button>
+  const activeInn=innings.filter(Boolean).slice(-1)[0];const overTxt=isCr&&st!=='upcoming'&&activeInn?' · ওভার '+bn(ov(activeInn.balls)):'';
+  const a=S.admin?`<div class="adm">${isCr?`<button class="mini" data-a="cradj" data-id="${m.id}" data-i="1" data-d="-1">১ম ইনিংস −১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="1" data-d="1">১ম ইনিংস +১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="2" data-d="-1">২য় ইনিংস −১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="2" data-d="1">২য় ইনিংস +১</button>`:`<button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="-1">${esc(m.home)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="1">${esc(m.home)} +</button><button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="-1">${esc(m.away)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="1">${esc(m.away)} +</button>`}
+  <button class="go" style="padding:5px 12px" data-a="ev" data-id="${m.id}">${isCr?'🏏 স্কোর করুন':'⚡ ইভেন্ট'}</button><button class="mini" data-a="st" data-id="${m.id}" data-v="live">লাইভ</button><button class="mini" data-a="st" data-id="${m.id}" data-v="done">শেষ</button>
   <button class="mini" data-a="edit" data-c="matches" data-id="${m.id}">✎ এডিট</button>${delBtn('matches',m.id)}</div>`:'';
   const sa=(!S.admin&&S.scorer&&m.status!=='done')?`<div class="adm"><button class="go" style="padding:5px 12px" data-a="ev" data-id="${m.id}">${isCr?'🏏 স্কোর করুন':'⚡ ইভেন্ট'}</button><button class="mini" data-a="st" data-id="${m.id}" data-v="live">লাইভ</button><button class="mini" data-a="st" data-id="${m.id}" data-v="done">শেষ</button></div>`:'';
   const elapsed=m.status==='live'&&m.startedAt?Math.max(0,Math.floor((Date.now()-m.startedAt)/60000)):null;
@@ -893,7 +894,8 @@ function crCalc(m){const I={};(m.events||[]).filter(e=>e.inn).forEach(e=>{const 
   i.runs+=d[3]||0;if(lg)i.balls++;if(e.k==='wk')i.wk++;
   const b=i.bat[e.name]||(i.bat[e.name]={n:e.name,r:0,b:0,f:0,s:0,out:false});
   if(!d[4]&&e.k!=='wk'){b.r+=d[3]||0;if(e.k==='r4')b.f++;if(e.k==='r6')b.s++}if(lg)b.b++;if(e.k==='wk')b.out=true;
-  if(e.bw){const w=i.bowl[e.bw]||(i.bowl[e.bw]={n:e.bw,b:0,r:0,w:0});if(lg)w.b++;if(e.k!=='bye')w.r+=d[3]||0;if(e.k==='wk')w.w++}});return I}
+  if(e.bw){const w=i.bowl[e.bw]||(i.bowl[e.bw]={n:e.bw,b:0,r:0,w:0});if(lg)w.b++;if(e.k!=='bye')w.r+=d[3]||0;if(e.k==='wk')w.w++}});
+  Object.keys(I).forEach(k=>{I[k].runs=Math.max(0,I[k].runs+(+(m.crAdj&&m.crAdj[k])||0))});return I}
 function crSummary(m){const I=crCalc(m),ks=Object.keys(I);if(!ks.length)return '';const mo=+m.overs||0;
   let h=ks.map(k=>{const i=I[k],tn=i.team==='home'?m.home:m.away;return `<div>${esc(tn)}: <b>${bn(i.runs)}/${bn(i.wk)}</b> (${bn(ov(i.balls))} ওভার) · রান রেট ${bn(i.balls?(i.runs*6/i.balls).toFixed(1):'0.0')}</div>`}).join('');
   if(I[1]&&I[2]){const need=I[1].runs+1-I[2].runs;h+=`<div>🎯 টার্গেট ${bn(I[1].runs+1)} · ${need>0?'জিততে আরও '+bn(need)+' রান'+(mo?' '+bn(Math.max(0,mo*6-I[2].balls))+' বলে':''):'টার্গেট পূর্ণ'}</div>`}
@@ -903,7 +905,8 @@ function crKeep(){const sh=S.sheet;if(!sh||sh.kind!=='cr')return;const a=$('#cr-
 function crSheet(){const sh=S.sheet,m=S.matches.find(x=>x.id===sh.mid);if(!m){S.sheet=null;sheet();return}
   const bo=sh.team==='home'?'away':'home',I=crCalc(m)[sh.inn],ch=(key,l)=>`<div class="chips wrap">${l.map(p=>`<button class="chip ${sh[key]===p.name?'on':''}" data-a="crp" data-k="${key}" data-id="${esc(p.name)}">${esc(p.name)}</button>`).join('')||'<span class="mut2">প্লেয়ার নেই — নিচে নাম লিখুন</span>'}</div>`;
   const E=(m.events||[]).filter(e=>e.inn).slice(-6).reverse().map(e=>`${evDef(m.sport,e.k)[1]} ${esc(e.name)}→${esc(e.bw||'')}`).join(' · ');
-  $('#sheet').innerHTML=`<div class="ov" data-a="shx"><div class="sh"><b style="font-size:17px">🏏 ${esc(m.home)} ${bn(m.hs||0)} : ${bn(m.as||0)} ${esc(m.away)}</b>
+  const cur=crCalc(m),s1=cur[1],s2=cur[2],fmt=x=>x?bn(x.runs)+'/'+bn(x.wk)+' ('+bn(ov(x.balls))+')':'—';
+  $('#sheet').innerHTML=`<div class="ov" data-a="shx"><div class="sh"><b style="font-size:17px">🏏 ${esc(m.home)} ${fmt(s1)} : ${fmt(s2)} ${esc(m.away)}</b>
   <div class="bar2" style="margin-top:8px">${[1,2].map(i=>`<button class="${sh.inn===i?'go':'ghost'}" data-a="cri" data-v="${i}">ইনিংস ${bn(i)}</button>`).join('')}</div>
   <div class="bar2">${['home','away'].map(t=>`<button class="${sh.team===t?'go':'ghost'}" data-a="crt" data-v="${t}">${esc(t==='home'?m.home:m.away)} ব্যাট</button>`).join('')}</div>
   ${I?`<div class="mut2">${bn(I.runs)}/${bn(I.wk)} · ${bn(ov(I.balls))} ওভার · রান রেট ${bn(I.balls?(I.runs*6/I.balls).toFixed(1):'0.0')}</div>`:''}
@@ -981,6 +984,7 @@ document.addEventListener('click',e=>{
   else if(a==='shsave')saveSheet();
   else if(a==='rmphoto'){S.sheet.photo='';sheet()}
   else if(a==='g'&&m){const f=b.dataset.s,nv=Math.max(0,(m[f]||0)+(+b.dataset.d)),up0=m.status==='upcoming';write(()=>S.db.doc('matches/'+id).update({[f]:nv,hs:f==='hs'?nv:(m.hs||0),as:f==='as'?nv:(m.as||0),status:up0?'live':m.status,...(up0?{startedAt:Date.now()}:{})}))}
+  else if(a==='cradj'&&m&&canScore()){const inn=String(b.dataset.i),adj={...(m.crAdj||{})};adj[inn]=Math.max(0,(+adj[inn]||0)+(+b.dataset.d));write(()=>S.db.doc('matches/'+id).update({crAdj:adj,status:m.status==='upcoming'?'live':m.status,...(m.status==='upcoming'?{startedAt:Date.now()}:{})}))}
   else if(a==='st'&&m)write(()=>S.db.doc('matches/'+id).update({status:v,hs:m.hs||0,as:m.as||0,...(v==='live'?{startedAt:m.startedAt||Date.now()}:{}),...(v==='done'?{doneAt:Date.now()}:{})}));
   else if(a==='del'&&b.dataset.c==='chat'){S.del=null;if(!confirm('এই মেসেজটি মুছে ফেলবেন? মুছলে আর ফেরত আসবে না।'))return;const cx=S.chat.find(y=>y.id===id);if(cx&&cx.fid)S.db.doc('chatimg/'+cx.fid).delete().catch(()=>{});S.cs.act='';write(()=>S.db.doc('chat/'+id).delete())}
   else if(a==='del'){const c=b.dataset.c,k=c+id;if(S.del===k){S.del=null;if(c==='chat'){const cx=S.chat.find(y=>y.id===id);if(cx&&cx.fid)S.db.doc('chatimg/'+cx.fid).delete().catch(()=>{})}write(()=>S.db.doc(c+'/'+id).delete())}else{S.del=k;render();setTimeout(()=>{if(S.del===k){S.del=null;render()}},4000)}}
