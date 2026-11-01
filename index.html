@@ -164,7 +164,7 @@ header{flex-wrap:nowrap;gap:6px}header>div:first-child{flex:1 1 auto;min-width:0
 .mo{background:none;border:0;color:inherit;font-size:17px;line-height:1;padding:0 8px 0 0;cursor:pointer;opacity:.8}.tm{display:flex;align-items:center;justify-content:flex-end}
 .cf #cmic{display:flex;align-items:center;justify-content:center;color:var(--a)}.cf #cmic.rec{color:#fff}
 .chat{top:auto;bottom:0;height:88dvh;border-radius:20px 20px 0 0;box-shadow:0 0 0 100vmax rgba(0,0,0,.5);animation:chup .22s ease-out}@keyframes chup{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
-</style></head><body>
+.chip.dis,.chip:disabled{opacity:.3;text-decoration:line-through;pointer-events:none}.rb{font-size:12.5px;line-height:1.6;margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--bd)}</style></head><body>
 <div id="bg"><div class="bl"></div><div class="bl"></div></div>
 <header><div style="display:flex;gap:9px;align-items:center;min-width:0"><img src="icon-192.png" width="38" height="38" alt="" style="border-radius:11px;flex:none"><div class="logo"><div class="sub"><span id="nm">গোপীনাথপুর স্পোর্টস</span><button class="mini" id="es" data-a="esite" style="display:none">✎</button></div><small id="tg">VILLAGE SPORTS HUB</small></div></div>
 <div class="hb"><button class="ic" data-a="about" title="সম্পর্কে">ℹ️</button><button class="ic" id="ab" data-a="admins" title="অ্যাডমিন ম্যানেজ" style="display:none">👑</button><button class="ic" id="ib" data-a="install" title="ইনস্টল">📲</button><button class="ic" id="nb" data-a="notif" title="নোটিফিকেশন">🔔</button><button class="ic" id="lg" data-a="login">🔐</button><button class="ic" data-a="theme">◐</button><button class="ic" id="lgb" data-a="lang" title="English" aria-label="English">EN</button></div></header>
@@ -254,7 +254,7 @@ const DEV={name:'মেহেদী হাসান অন্তর',photo:'dev.
 const CARDS=[['yellow','🟨','হলুদ কার্ড',0],['red','🟥','লাল কার্ড',0]],MOM=['mom','⭐','ম্যান অব দ্য ম্যাচ',0];
 const RULES={ // [কী, আইকন, নাম, পয়েন্ট, 'own'=বিপক্ষের পয়েন্ট]
  football:[['goal','⚽','গোল',1],['pen','🎯','পেনাল্টি গোল',1],['og','🙈','আত্মঘাতী গোল',1,'own'],['ast','🅰️','অ্যাসিস্ট',0],['pmiss','❌','পেনাল্টি মিস',0],['pso','🥅','শুটআউটে গোল',0],['psom','🚫','শুটআউটে মিস',0],['sub','🔁','সাবস্টিটিউশন',0],['et','⏱️','অতিরিক্ত সময় শুরু',0],...CARDS,MOM],
- cricket:[['r0','⚪','ডট বল',0],['r1','1️⃣','১ রান',1],['r2','2️⃣','২ রান',2],['r3','3️⃣','৩ রান',3],['r4','4️⃣','চার',4],['r6','6️⃣','ছক্কা',6],['wd','↔️','ওয়াইড (+১)',1,'ext'],['nb','🚫','নো বল (+১)',1,'ext'],['nb1','🚫','নো বল + ব্যাটে ১',2,'ext'],['nb2','🚫','নো বল + ব্যাটে ২',3,'ext'],['nb3','🚫','নো বল + ব্যাটে ৩',4,'ext'],['nb4','🚫','নো বল + চার',5,'ext'],['nb6','🚫','নো বল + ছক্কা',7,'ext'],['bye','🏃','বাই / লেগ বাই (+১)',1,'ext'],['wk','☝️','উইকেট (বোলার)',0],['ct','🧤','ক্যাচ (ফিল্ডার)',0],['fifty','🔥','হাফসেঞ্চুরি',0],['ton','💯','সেঞ্চুরি',0],MOM],
+ cricket:[['r0','⚪','ডট বল',0],['r1','1️⃣','১ রান',1],['r2','2️⃣','২ রান',2],['r3','3️⃣','৩ রান',3],['r4','4️⃣','চার',4],['r6','6️⃣','ছক্কা',6],['wd','↔️','ওয়াইড (+১)',1,'ext'],['nb','🚫','নো বল (+১)',1,'ext'],['nb1','🚫','নো বল + ব্যাটে ১',2,'ext'],['nb2','🚫','নো বল + ব্যাটে ২',3,'ext'],['nb3','🚫','নো বল + ব্যাটে ৩',4,'ext'],['nb4','🚫','নো বল + চার',5,'ext'],['nb6','🚫','নো বল + ছক্কা',7,'ext'],['bye','🏃','বাই / লেগ বাই (+১)',1,'ext'],['wk','☝️','উইকেট (বোলার)',0],['ro','🏃','রান আউট',0],['ct','🧤','ক্যাচ (ফিল্ডার)',0],['fifty','🔥','হাফসেঞ্চুরি',0],['ton','💯','সেঞ্চুরি',0],MOM],
  badminton:[['pt','🏸','পয়েন্ট',1],['smash','💥','স্ম্যাশ পয়েন্ট',1],...CARDS,MOM],
  volleyball:[['pt','🏐','পয়েন্ট',1],['spike','💥','স্পাইক',1],['block','🧱','ব্লক',1],['ace','🎯','সার্ভ এস',1],...CARDS,MOM],
  kabaddi:[['raid','🤼','রেইড পয়েন্ট',1],['tackle','🛡️','ট্যাকল',1],['bonus','✨','বোনাস',1],['allout','💪','অল-আউট',2],...CARDS,MOM],
@@ -306,8 +306,7 @@ function fsDb(fs,F){
       const ref=F.doc(fs,'matches',id),snap=await tx.get(ref);
       if(!snap.exists())throw new Error('ম্যাচ পাওয়া যায়নি');
       const data=snap.data()||{},adj={...(data.crAdj||{})},teams={...(data.crTeams||{})};
-      const key=String(inn),old=+adj[key]||0,next=Math.max(0,old+delta),actual=next-old;
-      const events=data.events||[],inEvents=events.filter(e=>String(e.inn)===key);
+      const key=String(inn),old=+adj[key]||0,events=data.events||[],inEvents=events.filter(e=>String(e.inn)===key),evRuns=inEvents.reduce((t,e)=>t+((evDef(data.sport,e.k)||[])[3]||0),0),next=Math.max(-evRuns,old+delta),actual=next-old;
       let team=inEvents.length?inEvents[0].team:teams[key];
       if(!team){
         if(key==='2'){
@@ -367,7 +366,7 @@ function diff(key,list){
     if(!o)push('🆕 নতুন ম্যাচ',m.home+' বনাম '+m.away+(m.when?' — '+m.when:''));
     else if(o.status!==m.status&&m.status==='live')push('🔴 ম্যাচ শুরু',sc);
     else if(o.status!==m.status&&m.status==='done')push('🏁 ম্যাচ শেষ',sc);
-    else if((o.hs!==m.hs||o.as!==m.as)&&m.status!=='upcoming'){S.bump[m.id]=Date.now();push('⚽ স্কোর আপডেট',sc)}});
+    else if((o.hs!==m.hs||o.as!==m.as)&&m.status!=='upcoming'){S.bump[m.id]=Date.now();push((SP[m.sport]||['⚽'])[0]+' স্কোর আপডেট',sc)}});
   if(key==='notices')list.forEach(n=>{if(!old.find(x=>x.id===n.id))push('📢 নতুন ঘোষণা',n.text)});
   if(key==='chat')list.forEach(c=>{if(!old.find(x=>x.id===c.id)&&c.uid!==S.me.id){
     if(S.cs.open&&S.cs.room===(c.room||'all'))return;
@@ -430,7 +429,7 @@ function mcard(m){
   const badge=st==='live'?'<span class="lv">● লাইভ</span>':st==='done'?'<span class="dn">শেষ</span>':'<span class="up">আসন্ন</span>';
   const isCr=m.sport==='cricket'||m.sport==='shortpitch';
   const ci=isCr?crCalc(m):{}, innings=[ci[1],ci[2]], scoreFor=t=>{const x=innings.find(z=>z&&z.team===t);return x?bn(x.runs)+'/'+bn(x.wk)+' <small>('+bn(ov(x.balls))+')</small>':'—'};
-  const sc=st==='upcoming'?'VS':isCr?'<span class="crsc">'+scoreFor('home')+' <i>:</i> '+scoreFor('away')+'</span>':(m.hs||0)+' : '+(m.as||0);
+  const sc=st==='upcoming'?'VS':isCr?'<span class="crsc">'+scoreFor('home')+' <i>:</i> '+scoreFor('away')+'</span>':(m.hs||0)+' : '+(m.as||0)+(isSetS(m.sport)&&(m.events||[]).length&&!setCalc(m).done?'<small style="display:block;font-size:13px;opacity:.85">'+bn(setCalc(m).c.home)+' – '+bn(setCalc(m).c.away)+'</small>':'');
   const bump=S.bump[m.id]&&Date.now()-S.bump[m.id]<1500?' bump':'';
   const activeInn=innings.filter(Boolean).slice(-1)[0];const overTxt=isCr&&st!=='upcoming'&&activeInn?' · ওভার '+bn(ov(activeInn.balls)):'';
   const a=S.admin?`<div class="adm">${isCr?`<button class="mini" data-a="cradj" data-id="${m.id}" data-i="1" data-d="-1">১ম ইনিংস −১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="1" data-d="1">১ম ইনিংস +১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="2" data-d="-1">২য় ইনিংস −১</button><button class="mini" data-a="cradj" data-id="${m.id}" data-i="2" data-d="1">২য় ইনিংস +১</button>`:`<button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="-1">${esc(m.home)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="hs" data-d="1">${esc(m.home)} +</button><button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="-1">${esc(m.away)} −</button><button class="mini" data-a="g" data-id="${m.id}" data-s="as" data-d="1">${esc(m.away)} +</button>`}
@@ -728,10 +727,10 @@ function sheet(){
   if(sh.kind==='cview'){el.innerHTML=`<div class="cv" data-a="shx"><div class="cvb"><b>${esc(sh.name)}</b><span><a class="mini" href="${sh.src}" download="gopinathpur-photo.jpg" style="text-decoration:none">⬇ সেভ</a> ${(()=>{const cx=S.chat.find(y=>y.id===sh.id);return cx&&(S.admin||cx.uid===S.me.id)?'<button class="mini red" data-a="vdel">🗑 মুছুন</button> ':''})()}${S.admin?'<button class="mini" data-a="togal">🖼️ গ্যালারিতে</button> ':''}<button class="mini" data-a="shclose">✕</button></span></div><div class="cvs"><img src="${sh.src}" alt="" data-a="cvz"></div><div class="cvh">${sh.full?'ট্যাপ করলে জুম হবে · ⬇ চাপলে ছবি সেভ হবে':'⏳ পূর্ণ রেজোলিউশন লোড হচ্ছে…'}</div></div>`;return}
   if(sh.kind==='zoom'){el.innerHTML=`<div class="ov" data-a="shx" style="align-items:center"><img data-a="shclose" src="${safeUrl(sh.src)}" style="max-width:96%;max-height:90vh;border-radius:12px" alt=""></div>`;return}
   const def=FORMS[sh.col];
-  const fld=def.f.map(([k,lb,ty,op])=>{
+  const fld=def.f.filter(([k])=>fieldOn(sh,k)).map(([k,lb,ty,op])=>{
     const v=sh.d[k]==null?'':sh.d[k];
     if(ty==='photo'||ty==='pic')return `<label>${lb}</label><div class="ph">${sh.photo?`<img class="pa" id="sh-prev" src="${safeUrl(sh.photo)}">`:`<div class="pa" id="sh-prev">+</div>`}<div style="flex:1"><input id="sh-${k}" type="file" accept="image/*">${sh.photo?'<button class="mini red" data-a="rmphoto" style="margin-top:6px">ছবি মুছুন</button>':''}</div></div>`;
-    if(ty==='sel')return `<label>${lb}</label><select id="sh-${k}">${op.map(o=>`<option value="${o[0]}" ${(v||op[0][0])===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>`;
+    if(ty==='sel')return `<label>${lb}</label><select id="sh-${k}">${op.map(o=>`<option value="${o[0]}" ${(v||op[0][0])===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>${k==='sport'?ruleBox(v||op[0][0]):''}`;
     if(ty==='area')return `<label>${lb}</label><textarea id="sh-${k}" rows="3">${esc(v)}</textarea>`;
     return `<label>${lb}</label>${k==='overs'?'<datalist id="ovl">'+[5,6,8,10,12,15,20,30,50].map(x=>'<option value="'+x+'">').join('')+'</datalist>':''}<input id="sh-${k}" ${k==='overs'?'list="ovl" placeholder="৫, ৮, ১০, ২০… বা নিজের মতো লিখুন" ':''}${ty==='num'?'type="number" inputmode="numeric"':ty==='date'?'type="date"':''} value="${esc(v)}">`;
   }).join('');
@@ -740,7 +739,7 @@ function sheet(){
 }
 function teamPick(sh){
   const sp=sh.d.sport||'football',fl=S.players.filter(p=>(p.sport||'football')===sp),list=fl.length?fl:S.players;
-  const blk=(t,lb)=>`<label style="margin-top:14px;color:var(--a);font-size:13px">${lb} — আমাদের গ্রামের প্লেয়ার (ট্যাপ করে বাছুন)</label><div class="chips wrap" style="margin-bottom:4px">${list.map(p=>`<button type="button" class="chip ${(sh[t]||[]).includes(p.id)?'on':''}" data-a="tp" data-t="${t}" data-id="${p.id}">${esc(p.name)}</button>`).join('')||'<span class="mut2">প্লেয়ার লিস্টে কেউ নেই</span>'}</div><label>অন্য গ্রামের টিম হলে খেলোয়াড়দের নাম (কমা বা নতুন লাইনে)</label><textarea id="sh-${t}x" rows="2">${esc(sh[t+'x']||'')}</textarea>`;
+  const blk=(t,lb)=>`<label style="margin-top:14px;color:var(--a);font-size:13px">${lb} — আমাদের গ্রামের প্লেয়ার (ট্যাপ করে বাছুন)</label><div class="chips wrap" style="margin-bottom:4px">${list.map(p=>`<button type="button" class="chip ${(sh[t]||[]).includes(p.id)?'on':''} ${(sh[t==='hp'?'ap':'hp']||[]).includes(p.id)?'dis':''}" ${(sh[t==='hp'?'ap':'hp']||[]).includes(p.id)?'disabled':''} data-a="tp" data-t="${t}" data-id="${p.id}">${esc(p.name)}</button>`).join('')||'<span class="mut2">প্লেয়ার লিস্টে কেউ নেই</span>'}</div><label>অন্য গ্রামের টিম হলে খেলোয়াড়দের নাম (কমা বা নতুন লাইনে)</label><textarea id="sh-${t}x" rows="2">${esc(sh[t+'x']||'')}</textarea>`;
   return blk('hp','টিম ১')+blk('ap','টিম ২');
 }
 function keepSheet(){const sh=S.sheet;if(!sh||!FORMS[sh.col])return;
@@ -748,12 +747,14 @@ function keepSheet(){const sh=S.sheet;if(!sh||!FORMS[sh.col])return;
   if(sh.col==='matches'){const a=$('#sh-hpx'),b=$('#sh-apx');if(a)sh.hpx=a.value;if(b)sh.apx=b.value}}
 function saveSheet(){
   const sh=S.sheet,def=FORMS[sh.col],o={};
-  for(const [k,,ty] of def.f){const el=$('#sh-'+k);if(ty==='photo'||ty==='pic')o[k]=sh.photo||'';else if(ty==='num'){const v=el.value.trim();o[k]=v===''?'':+v}else o[k]=el.value.trim()}
+  for(const [k,,ty] of def.f){const el=$('#sh-'+k);if(!el&&SPF[k]){o[k]=sh.d[k]==null?'':sh.d[k];continue}if(ty==='photo'||ty==='pic')o[k]=sh.photo||'';else if(ty==='num'){const v=el.value.trim();o[k]=v===''?'':+v}else o[k]=el.value.trim()}
   if(def.req.some(k=>o[k]===''||o[k]==null||(k==='amount'&&!(o.amount>0)))){sh.err='দরকারি ঘর পূরণ করুন';sheet();return}
   if(sh.col==='ledger'){o.amount=Math.round(o.amount);const dt=o.dt;delete o.dt;if(dt&&(!sh.id||dt!==lz(sh.d.ts))){o.ts=new Date(dt+'T12:00:00').getTime()+Date.now()%1000}}
   if(sh.col==='matches'){if(o.hs==='')o.hs=0;if(o.as==='')o.as=0;
     const mkT=(ids,tx)=>[...(ids||[]),...(tx||'').split(/[\n,،]+/).map(z=>z.trim()).filter(Boolean)];
     o.homePlayers=mkT(sh.hp,($('#sh-hpx')||{}).value);o.awayPlayers=mkT(sh.ap,($('#sh-apx')||{}).value);
+    const nm=z=>{const q=S.players.find(w=>w.id===z);return String(q?q.name:z).trim().toLowerCase()},an=o.awayPlayers.map(nm);
+    if(o.homePlayers.some(z=>an.includes(nm(z)))){keepSheet();sh.err='একই খেলোয়াড় দুই টিমে থাকতে পারবে না';sheet();return}
     const sa=sh.d.startedAt||0;o.startedAt=o.status==='live'?(sa||Date.now()):sa;if(o.status==='done'&&!sh.d.doneAt)o.doneAt=Date.now()}
   const {col,id}=sh;S.sheet=null;sheet();
   write(async()=>{
@@ -834,23 +835,50 @@ function addEv(k){
   addEvent(m,{k,team:sh.team,pid:typed?'':((p&&p.v)?p.id:''),name:typed||(p&&p.name)||(sh.team==='home'?m.home:m.away),min:sh.min});
 }
 function addEvent(m,o){
-  const k=o.k,df=evDef(m.sport,k),up0=m.status==='upcoming',auto=up0?1:(m.startedAt&&m.status==='live'?Math.floor((Date.now()-m.startedAt)/60000)+1:'');
+  const k=o.k,df=evDef(m.sport,k);if(isSetS(m.sport)&&df[3]>0&&setCalc(m).done){toast('ম্যাচ শেষ — আর পয়েন্ট যোগ হবে না');return}
+  const up0=m.status==='upcoming',auto=up0?1:(m.startedAt&&m.status==='live'?Math.floor((Date.now()-m.startedAt)/60000)+1:'');
   const ev={id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),k,team:o.team,pid:o.pid||'',name:o.name,min:o.min===''||o.min==null?auto:+o.min,ts:Date.now()};
   if(o.inn){ev.inn=o.inn;ev.bw=o.bw||'';ev.bwp=o.bwp||''}
   const fr=df[4]==='own'?(o.team==='home'?'away':'home'):o.team,up={events:[...(m.events||[]).filter(e=>!(k==='mom'&&e.k==='mom')),ev],hs:m.hs||0,as:m.as||0};
-  if(df[3]){const fl=fr==='home'?'hs':'as';up[fl]=Math.max(0,up[fl]+df[3])}
+  if(df[3]&&!isSetS(m.sport)){const fl=fr==='home'?'hs':'as';up[fl]=m.sport==='carrom'?up[fl]+df[3]:Math.max(0,up[fl]+df[3])}
+  if(isSetS(m.sport)){const r=setCalc({...m,events:up.events});up.hs=r.W.home;up.as=r.W.away}
   if(up0){up.status='live';up.startedAt=Date.now()}
+  autoFin(m,up);
   toast(df[1]+' '+o.name,df[2]);write(()=>S.db.doc('matches/'+m.id).update(up));
   if(['goal','pen','og','yellow','red'].includes(k)&&!o.inn)S.db.collection('chat').add({text:`${df[1]} ${ev.min?bn(ev.min)+'′ ':''}${o.name} — ${df[2]} · ${m.home} ${bn(up.hs)}–${bn(up.as)} ${m.away}`,name:'স্কোরবট',uid:S.me.id,photo:'',bot:1,ts:Date.now(),room:m.id}).catch(()=>{});
-  S.db.collection('commentary').add({text:`${df[1]} ${ev.min?bn(ev.min)+'′ ':''}${o.name} — ${df[2]} (${m.home} ${bn(up.hs)}–${bn(up.as)} ${m.away})`,match:m.home+' বনাম '+m.away,ts:Date.now(),auto:1}).catch(()=>{});
+  if(!isSetS(m.sport))S.db.collection('commentary').add({text:`${df[1]} ${ev.min?bn(ev.min)+'′ ':''}${o.name} — ${df[2]} (${m.home} ${bn(up.hs)}–${bn(up.as)} ${m.away})`,match:m.home+' বনাম '+m.away,ts:Date.now(),auto:1}).catch(()=>{});
 }
-function delEv(id){const m=S.sheet&&S.matches.find(x=>x.id===S.sheet.mid),e=m&&(m.events||[]).find(x=>x.id===id);if(!e)return;
+function delEv(id,mm){const m=mm||(S.sheet&&S.matches.find(x=>x.id===S.sheet.mid)),e=m&&(m.events||[]).find(x=>x.id===id);if(!e)return;
   const df=evDef(m.sport,e.k),fr=df[4]==='own'?(e.team==='home'?'away':'home'):e.team,up={events:m.events.filter(x=>x.id!==id),hs:m.hs||0,as:m.as||0};
-  if(df[3]){const fl=fr==='home'?'hs':'as';up[fl]=Math.max(0,up[fl]-df[3])}
-  write(()=>S.db.doc('matches/'+m.id).update(up))}
+  if(df[3]&&!isSetS(m.sport)){const fl=fr==='home'?'hs':'as';up[fl]=m.sport==='carrom'?up[fl]-df[3]:Math.max(0,up[fl]-df[3])}
+  if(isSetS(m.sport)){const r=setCalc({...m,events:up.events});up.hs=r.W.home;up.as=r.W.away}
+  autoFin(m,up);write(()=>S.db.doc('matches/'+m.id).update(up))}
+function autoFin(m,up){const mm={...m,...up};let done=null;
+  if(isSetS(m.sport))done=setCalc(mm).done;
+  else if(isCrS(m.sport)){const I=crCalc(mm),a=I[1],b=I[2];if(a&&b){const mw=+m.wkts||10,mo=(+m.overs||0)*6,ended=b.runs>a.runs||b.wk>=mw||(mo&&b.balls>=mo);done=!!ended&&b.runs!==a.runs}}
+  if(done===null)return;
+  if(done&&m.status!=='done'){up.status='done';up.doneAt=Date.now();up.autoDone=true}
+  else if(!done&&m.status==='done'&&m.autoDone){up.status='live';up.doneAt=null;up.autoDone=false}}
+function setPt(m,t,d){if(!canScore())return;
+  if(d>0){addEvent(m,{k:'pt',team:t,pid:'',name:t==='home'?m.home:m.away});return}
+  const r=setCalc(m);if(!r.done&&r.c[t]===0){toast('এই সেটে এই টিমের পয়েন্ট নেই','আগের সেট ঠিক করতে "↩ শেষ ঘটনা আনডু" চাপুন');return}
+  const E=(m.events||[]).filter(e=>e.team===t&&evDef(m.sport,e.k)[3]>0).sort((a,b)=>(a.ts||0)-(b.ts||0)),l=E[E.length-1];
+  if(!l){toast('কাটার মতো পয়েন্ট নেই');return}delEv(l.id,m)}
+function crGuard(m,inn,bat,bw,k){const I=crCalc(m),i=I[inn],mw=+m.wkts||10,mo=(+m.overs||0)*6;
+  if(bat.toLowerCase()===bw.toLowerCase())return 'ব্যাটার ও বোলার একই হতে পারে না';
+  if(i&&i.bat[bat]&&i.bat[bat].out)return '❌ '+bat+' আউট হয়ে গেছে — নতুন ব্যাটার বাছুন';
+  if(i&&i.wk>=mw)return 'ইনিংস শেষ — সব উইকেট পড়ে গেছে';
+  if(i&&mo&&i.balls>=mo)return 'ইনিংস শেষ — ওভার শেষ';
+  if(+inn===2&&I[1]&&I[2]&&I[2].runs>I[1].runs)return 'টার্গেট পূর্ণ — ম্যাচ শেষ';
+  const E=(m.events||[]).filter(e=>e.inn===inn&&crLegalK(e.k));
+  if(E.length&&E.length%6===0&&E[E.length-1].bw===bw)return 'একই বোলার পরপর দুই ওভার করতে পারবে না';
+  return ''}
+function crOver(m,inn){let cur=[],lc=0,dn=false;(m.events||[]).filter(e=>e.inn===inn).forEach(e=>{if(dn){cur=[];dn=false}
+  cur.push(e.k==='r0'?'•':/^r[1-6]$/.test(e.k)?e.k[1]:e.k==='wd'?'Wd':e.k==='nb'?'Nb':/^nb[1-6]$/.test(e.k)?'Nb+'+e.k[2]:e.k==='bye'?'B':e.k==='wk'?'W':e.k==='ro'?'RO':'·');
+  if(crLegalK(e.k)){lc++;if(lc%6===0)dn=true}});return dn?'নতুন ওভার শুরু':cur.join(' ')}
 function shareMatch(m){
   const ic=(SP[m.sport]||['🎮'])[0],st={live:'🔴 লাইভ',done:'🏁 শেষ',upcoming:'⏳ আসন্ন'}[m.status]||'',sc=m.status==='upcoming'?'বনাম':bn(m.hs||0)+' – '+bn(m.as||0);
-  const gl=(m.events||[]).filter(e=>evDef(m.sport,e.k)[3]>0).map(e=>evDef(m.sport,e.k)[1]+' '+e.name+(e.min?' '+bn(e.min)+"'":'')).join('\n');
+  const gl=isSetS(m.sport)?setCalc(m).L.map((z,i)=>'সেট '+bn(i+1)+': '+bn(z)).join('\n'):(m.events||[]).filter(e=>evDef(m.sport,e.k)[3]>0).map(e=>evDef(m.sport,e.k)[1]+' '+e.name+(e.min?' '+bn(e.min)+"'":'')).join('\n');
   const t=`${ic} ${m.home} ${sc} ${m.away}\n${st}${m.when?' · '+m.when:''}${gl?'\n'+gl:''}\n\n${cfg().name||'গোপীনাথপুর স্পোর্টস'}: ${location.origin+location.pathname}`;
   if(navigator.share)navigator.share({text:t}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(gsT(t)),'_blank')}
 
@@ -865,7 +893,7 @@ async function reportMatch(m){
  x.fillStyle='#ffd24a';x.font='800 70px Orbitron, sans-serif';x.fillText(`${m.hs||0}  :  ${m.as||0}`,600,370);
  x.fillStyle='#c6ded8';x.font='500 25px "Hind Siliguri", sans-serif';x.fillText(m.status==='done'?'🏁 ম্যাচ শেষ':m.status==='live'?'🔴 লাইভ':'⏳ আসন্ন',600,430);
  x.font='500 22px "Hind Siliguri", sans-serif';x.fillText([m.when,m.venue].filter(Boolean).join(' · ')||new Date(m.ts||Date.now()).toLocaleDateString(gsLoc),600,480);
- const goals=(m.events||[]).filter(e=>['goal','pen','r4','r6','wk'].includes(e.k)).slice(0,5).map(e=>evDef(m.sport,e.k)[1]+' '+e.name).join('   •   ');
+ const goals=isSetS(m.sport)?setCalc(m).L.map((z,i)=>'সেট '+(i+1)+': '+z).join('   •   '):(m.events||[]).filter(e=>['goal','pen','r4','r6','wk'].includes(e.k)).slice(0,5).map(e=>evDef(m.sport,e.k)[1]+' '+e.name).join('   •   ');
  x.font='500 20px "Hind Siliguri", sans-serif';x.fillText(goals||'ধন্যবাদ সবাইকে',600,535);
  x.font='500 16px sans-serif';x.fillStyle='#8fb5ad';x.fillText('Gopinathpur Sports',600,575);
  c.toBlob(async blob=>{if(!blob){toast('রিপোর্ট কার্ড তৈরি হয়নি');return}const file=new File([blob],`match-report-${m.id}.png`,{type:'image/png'});try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'ম্যাচ রিপোর্ট'});return}}catch(e){}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`match-report-${m.id}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('ম্যাচ রিপোর্ট কার্ড ডাউনলোড হয়েছে')},'image/png');
@@ -875,7 +903,18 @@ document.addEventListener('pointerdown',e=>{const f=e.target.closest&&e.target.c
 document.addEventListener('pointermove',e=>{if(d){const dx=e.clientX-x0;mv=Math.max(mv,Math.abs(dx));d.scrollLeft=s0-dx}});
 document.addEventListener('pointerup',()=>{d=null});
 document.addEventListener('click',e=>{if(mv>5){e.stopPropagation();e.preventDefault();mv=0}},true);})();
-const canScore=()=>S.admin||S.scorer,isCrS=x=>x==='cricket'||x==='shortpitch',tk=x=>(x||'').trim().toLowerCase(),ov=b=>Math.floor(b/6)+'.'+b%6;
+const isSetS=x=>x==='volleyball'||x==='badminton',crLegalK=k=>k!=='wd'&&k!=='nb'&&!/^nb[1-6]$/.test(k),
+SPF={overs:x=>isCrS(x),wkts:x=>isCrS(x),bestof:isSetS,setpts:isSetS,hs:x=>!isCrS(x)&&!isSetS(x),as:x=>!isCrS(x)&&!isSetS(x)},
+fieldOn=(sh,k)=>{if(sh.col!=='matches')return true;const f=SPF[k];return f?f(sh.d.sport||'football'):true},
+RTXT={football:'জয় ৩ পয়েন্ট, ড্র ১। গোল/পেনাল্টি গোল স্কোরের নামে, আত্মঘাতী গোল বিপক্ষের নামে যোগ হয়। লাল কার্ডে পরের ম্যাচে সাসপেন্ড।',
+cricket:'ওভার ও সর্বোচ্চ উইকেট দিন। ওয়াইড/নো বলে +১ রান কিন্তু বৈধ বল নয়। আউট ব্যাটার আর ব্যাট করতে পারবে না। একই বোলার পরপর দুই ওভার নয়। ২য় ইনিংসের টার্গেট = ১ম ইনিংস + ১; টার্গেট পূর্ণ/অল-আউট/ওভার শেষ হলে ম্যাচ অটো শেষ।',
+badminton:'সেটে ২ পয়েন্টের ব্যবধানে ২১ (ফাঁকা = অটো); ২৯–২৯ হলে ৩০-এ সেট জয়। বেশি সেট জেতা দল জয়ী; ম্যাচ জিতলে অটো শেষ হবে, তারপর পয়েন্ট যোগ হবে না।',
+volleyball:'সেটে ২ পয়েন্টের ব্যবধানে ২৫ (ফাঁকা = অটো); শেষ সেট ১৫। বেশি সেট জেতা দল জয়ী; ম্যাচ জিতলে অটো শেষ।',
+kabaddi:'রেইড, ট্যাকল, বোনাস ১ পয়েন্ট করে; অল-আউট ২ পয়েন্ট।',
+carrom:'কয়েন ১, কুইন ৩ পয়েন্ট; ফাউলে −১।',
+chess:'বোর্ড জয় ১ পয়েন্ট, ড্র ০।'},
+ruleBox=sp=>'<div class="rb">📘 <b>নিয়ম:</b> '+esc(RTXT[sp==='shortpitch'?'cricket':sp]||'')+(sp==='shortpitch'?' (শর্ট পিচ: ওভার কম রাখুন)':'')+'</div>',
+canScore=()=>S.admin||S.scorer,isCrS=x=>x==='cricket'||x==='shortpitch',tk=x=>(x||'').trim().toLowerCase(),ov=b=>Math.floor(b/6)+'.'+b%6;
 function showInfo(t){S.sheet={kind:'info',t};sheet()}
 /* সাসপেনশন, মুখোমুখি, RSVP */
 function suspSet(m){const o=new Set();if(m.sport!=='football')return o;
@@ -900,14 +939,16 @@ function matchExtra(m){let h='';const lk=okU(m.live);
   return h}
 /* আন্তর্জাতিক নিয়মের অটো হিসাব */
 const mx='<div class="mut" style="font-size:12px;text-align:left">';
-function setCalc(m){const R=RULES[m.sport]||[],bo=+m.bestof||3,need=(bo+1)/2,bd=m.sport==='badminton',base=+m.setpts||(bd?21:25),W={home:0,away:0},L=[];let c={home:0,away:0};
+function setCalc(m){const R=RULES[m.sport]||[],bo=+m.bestof||3,need=(bo+1)/2,bd=m.sport==='badminton',base=+m.setpts||(bd?21:25),cap=bd?base+9:0,W={home:0,away:0},L=[];let c={home:0,away:0};
+  const tgf=()=>(!bd&&bo>1&&!(+m.setpts)&&W.home+W.away===bo-1)?15:base;
   for(const e of (m.events||[]).slice().sort((a,b)=>(a.ts||0)-(b.ts||0))){const d=R.find(x=>x[0]===e.k);if(!d||!(d[3]>0))continue;if(W.home>=need||W.away>=need)break;
-    const t=d[4]==='own'?(e.team==='home'?'away':'home'):e.team,o=t==='home'?'away':'home';c[t]+=d[3];
-    const tg=(!bd&&bo>1&&W.home+W.away===bo-1)?15:base;
-    if((c[t]>=tg&&c[t]-c[o]>=2)||(bd&&c[t]>=30)){W[t]++;L.push(c.home+'–'+c.away);c={home:0,away:0}}}
-  return {W,L,c,done:W.home>=need||W.away>=need}}
-function setHtml(m){if(!['volleyball','badminton'].includes(m.sport)||!(m.events||[]).length)return '';const r=setCalc(m);
-  return mx+'🏅 সেট: <b>'+bn(r.W.home)+'–'+bn(r.W.away)+'</b>'+(r.L.length?' · ('+r.L.map(x=>bn(x)).join(', ')+')':'')+(r.done?'<br>🏆 '+esc(r.W.home>r.W.away?m.home:m.away)+' জয়ী':' · চলতি সেট: '+bn(r.c.home)+'–'+bn(r.c.away))+'</div>'}
+    const t=d[4]==='own'?(e.team==='home'?'away':'home'):e.team,o=t==='home'?'away':'home';c[t]+=d[3];const tg=tgf();
+    if((c[t]>=tg&&c[t]-c[o]>=2)||(cap&&c[t]>=cap)){W[t]++;L.push(c.home+'–'+c.away);c={home:0,away:0}}}
+  return {W,L,c,tg:tgf(),cap,need,done:W.home>=need||W.away>=need}}
+function setHtml(m){if(!isSetS(m.sport)||!(m.events||[]).length)return '';const r=setCalc(m);
+  const gp=t=>{if(r.done)return false;const o=t==='home'?'away':'home',n=r.c[t]+1;return (n>=r.tg&&n-r.c[o]>=2)||(r.cap&&n>=r.cap)};let bd='';
+  ['home','away'].forEach(t=>{if(gp(t))bd+='<br><b class="up">'+(r.W[t]===r.need-1?'🏆 ম্যাচ পয়েন্ট':'🔥 সেট পয়েন্ট')+': '+esc(t==='home'?m.home:m.away)+'</b>'});
+  return mx+'🏅 সেট: <b>'+bn(r.W.home)+'–'+bn(r.W.away)+'</b>'+(r.L.length?' · ('+r.L.map(x=>bn(x)).join(', ')+')':'')+(r.done?'<br>🏆 '+esc(r.W.home>r.W.away?m.home:m.away)+' জয়ী':'<br>চলতি সেট: <b>'+bn(r.c.home)+'–'+bn(r.c.away)+'</b> (লক্ষ্য '+bn(r.tg)+')'+bd)+'</div>'}
 function psoHtml(m){const E=m.events||[],g=t=>E.filter(e=>e.k==='pso'&&e.team===t).length;if(!E.some(e=>e.k==='pso'||e.k==='psom'))return '';
   return mx+'🥅 পেনাল্টি শুটআউট: <b>'+esc(m.home)+' '+bn(g('home'))+'–'+bn(g('away'))+' '+esc(m.away)+'</b></div>'}
 function crResult(m){const I=crCalc(m),a=I[1],b=I[2];if(!a||!b)return '';const tn=k=>esc(I[k].team==='home'?m.home:m.away),mo=(+m.overs||0)*6,mw=+m.wkts||10;
@@ -916,12 +957,12 @@ function crResult(m){const I=crCalc(m),a=I[1],b=I[2];if(!a||!b)return '';const t
   return mx+'🎯 লক্ষ্য '+bn(a.runs+1)+' · '+tn(2)+'-এর দরকার '+bn(a.runs+1-b.runs)+' রান'+(mo?' '+bn(mo-b.balls)+' বলে':'')+'</div>'}
 /* ক্রিকেট স্কোরকার্ড */
 function crCalc(m){const I={};(m.events||[]).filter(e=>e.inn).forEach(e=>{const d=evDef(m.sport,e.k),i=I[e.inn]||(I[e.inn]={team:e.team,runs:0,wk:0,balls:0,bat:{},bowl:{},extras:{wd:0,nb:0,bye:0}}),lg=e.k!=='wd'&&e.k!=='nb'&&!/^nb[0-6]$/.test(e.k),nb=e.k==='nb'||/^nb[0-6]$/.test(e.k),nbBat=nb?+(e.k.match(/^nb([0-6])$/)||[])[1]||0:0;
-  i.runs+=d[3]||0;if(lg)i.balls++;if(e.k==='wk')i.wk++;
+  i.runs+=d[3]||0;if(lg)i.balls++;if(e.k==='wk'||e.k==='ro')i.wk++;
   if(e.k==='wd')i.extras.wd+=d[3]||0;else if(nb)i.extras.nb+=1;else if(e.k==='bye')i.extras.bye+=d[3]||0;
   const b=i.bat[e.name]||(i.bat[e.name]={n:e.name,r:0,b:0,f:0,s:0,out:false});
   const batRuns=nb?nbBat:(e.k==='bye'||e.k==='wk'||e.k==='wd'?0:(d[3]||0));
   b.r+=batRuns;if(batRuns===4)b.f++;if(batRuns===6)b.s++;
-  if(e.k!=='wd')b.b++;if(e.k==='wk')b.out=true;
+  if(e.k!=='wd')b.b++;if(e.k==='wk'||e.k==='ro')b.out=true;
   if(e.bw){const w=i.bowl[e.bw]||(i.bowl[e.bw]={n:e.bw,b:0,r:0,w:0});if(lg)w.b++;if(e.k!=='bye')w.r+=d[3]||0;if(e.k==='wk')w.w++}});
   Object.keys(m.crAdj||{}).forEach(k=>{if(!I[k]){const first=I[1],team=(m.crTeams&&m.crTeams[k])||(String(k)==='2'?(first?(first.team==='home'?'away':'home'):'away'):'home');I[k]={team,runs:0,wk:0,balls:0,bat:{},bowl:{},extras:{wd:0,nb:0,bye:0}}}});
   Object.keys(I).forEach(k=>{I[k].runs=Math.max(0,I[k].runs+(+(m.crAdj&&m.crAdj[k])||0))});return I}
@@ -933,16 +974,17 @@ function crTeamForInn(m,inn){const ev=(m.events||[]).filter(e=>e.inn===inn);if(e
 function openCr(m,team,pid){const E=(m.events||[]).filter(e=>e.inn),l=E[E.length-1],inn=l?l.inn:1,t=team||crTeamForInn(m,inn),p=pid&&roster(m,t).find(x=>x.id===pid);S.sheet={kind:'cr',mid:m.id,team:t,inn,bat:p?p.name:'',bow:''};sheet()}
 function crKeep(){const sh=S.sheet;if(!sh||sh.kind!=='cr')return;const a=$('#cr-bat'),b=$('#cr-bow');if(a&&a.value.trim())sh.bat=a.value.trim();if(b&&b.value.trim())sh.bow=b.value.trim()}
 function crSheet(){const sh=S.sheet,m=S.matches.find(x=>x.id===sh.mid);if(!m){S.sheet=null;sheet();return}
-  const bo=sh.team==='home'?'away':'home',I=crCalc(m)[sh.inn],ch=(key,l)=>`<div class="chips wrap">${l.map(p=>`<button class="chip ${sh[key]===p.name?'on':''}" data-a="crp" data-k="${key}" data-id="${esc(p.name)}">${esc(p.name)}</button>`).join('')||'<span class="mut2">প্লেয়ার নেই — নিচে নাম লিখুন</span>'}</div>`;
+  const bo=sh.team==='home'?'away':'home',I=crCalc(m)[sh.inn],ch=(key,l)=>`<div class="chips wrap">${l.map(p=>`<button class="chip ${sh[key]===p.name?'on':''}" ${key==='bat'&&I&&I.bat[p.name]&&I.bat[p.name].out?'disabled':''} data-a="crp" data-k="${key}" data-id="${esc(p.name)}">${esc(p.name)}${key==='bat'&&I&&I.bat[p.name]&&I.bat[p.name].out?' †':''}</button>`).join('')||'<span class="mut2">প্লেয়ার নেই — নিচে নাম লিখুন</span>'}</div>`;
   const E=(m.events||[]).filter(e=>e.inn).slice(-6).reverse().map(e=>`${evDef(m.sport,e.k)[1]} ${esc(e.name)}→${esc(e.bw||'')}`).join(' · ');
   const cur=crCalc(m),s1=cur[1],s2=cur[2],fmt=x=>x?bn(x.runs)+'/'+bn(x.wk)+' ('+bn(ov(x.balls))+')':'—';
   $('#sheet').innerHTML=`<div class="ov" data-a="shx"><div class="sh"><b style="font-size:17px">🏏 ${esc(m.home)} ${fmt(s1)} : ${fmt(s2)} ${esc(m.away)}</b>
   <div class="bar2" style="margin-top:8px">${[1,2].map(i=>`<button class="${sh.inn===i?'go':'ghost'}" data-a="cri" data-v="${i}">ইনিংস ${bn(i)}</button>`).join('')}</div>
   <div class="bar2">${['home','away'].map(t=>{const first=(m.events||[]).find(e=>e.inn===1),locked=(m.events||[]).some(e=>e.inn===sh.inn),allowed=sh.inn===2&&first?t!==first.team:(!locked||t===sh.team);return `<button class="${sh.team===t?'go':'ghost'}" ${allowed?'':'disabled'} data-a="crt" data-v="${t}">${esc(t==='home'?m.home:m.away)} ব্যাট</button>`}).join('')}</div>
-  ${I?`<div class="mut2">${bn(I.runs)}/${bn(I.wk)} · ${bn(ov(I.balls))} ওভার · রান রেট ${bn(I.balls?(I.runs*6/I.balls).toFixed(1):'0.0')}</div>`:''}
+  ${I?`<div class="mut2">${bn(I.runs)}/${bn(I.wk)} · ${bn(ov(I.balls))} ওভার · রান রেট ${bn(I.balls?(I.runs*6/I.balls).toFixed(1):'0.0')}${sh.bat&&I.bat[sh.bat]?' · '+esc(sh.bat)+' '+bn(I.bat[sh.bat].r)+'('+bn(I.bat[sh.bat].b)+')':''}</div>`:''}
+  <div class="mut2">🕐 এই ওভার: ${crOver(m,sh.inn)||'—'}</div>
   <label>ব্যাটার</label>${ch('bat',roster(m,sh.team))}<input id="cr-bat" placeholder="অথবা ব্যাটারের নাম লিখুন" value="${esc(sh.bat||'')}">
   <label>বোলার</label>${ch('bow',roster(m,bo))}<input id="cr-bow" placeholder="অথবা বোলারের নাম লিখুন" value="${esc(sh.bow||'')}">
-  <label>বল কী হলো? ট্যাপ করলেই যোগ হবে</label><div class="eg">${[['r0','০ ডট'],['r1','১'],['r2','২'],['r3','৩'],['r4','৪'],['r6','৬'],['wd','ওয়াইড'],['nb','নো বল'],['nb1','নো বল+১'],['nb2','নো বল+২'],['nb3','নো বল+৩'],['nb4','নো বল+৪'],['nb6','নো বল+৬'],['bye','বাই'],['wk','☝️ আউট']].map(([k,l])=>`<button class="mini" data-a="crb" data-v="${k}">${l}</button>`).join('')}</div>
+  <label>বল কী হলো? ট্যাপ করলেই যোগ হবে</label><div class="eg">${[['r0','০ ডট'],['r1','১'],['r2','২'],['r3','৩'],['r4','৪'],['r6','৬'],['wd','ওয়াইড'],['nb','নো বল'],['nb1','নো বল+১'],['nb2','নো বল+২'],['nb3','নো বল+৩'],['nb4','নো বল+৪'],['nb6','নো বল+৬'],['bye','বাই'],['wk','☝️ আউট'],['ro','🏃 রান আউট']].map(([k,l])=>`<button class="mini" data-a="crb" data-v="${k}">${l}</button>`).join('')}</div>
   <div class="mut2">${E||'এখনো কোনো বল নেই'}</div><div class="bar2"><button class="ghost" data-a="crundo">↩ আনডু</button><button class="ghost" data-a="cro">অন্য ইভেন্ট</button><button class="ghost" data-a="card" data-id="${m.id}">📋 কার্ড</button></div><button class="go" data-a="shclose" style="width:100%">বন্ধ করুন</button></div></div>`}
 function cardSheet(){const m=S.matches.find(x=>x.id===S.sheet.mid);if(!m){S.sheet=null;sheet();return}const I=crCalc(m);
   const t=k=>{const i=I[k];if(!i)return '';return `<div class="card"><b>ইনিংস ${bn(k)} — ${esc(i.team==='home'?m.home:m.away)} ${bn(i.runs)}/${bn(i.wk)} (${bn(ov(i.balls))} ওভার)</b><table class="st" style="margin-top:6px"><tr><th>ব্যাটার</th><th>রান</th><th>বল</th><th>৪</th><th>৬</th><th>SR</th></tr>${Object.values(i.bat).map(x=>`<tr><td>${esc(x.n)}${x.out?' †':''}</td><td><b>${bn(x.r)}</b></td><td>${bn(x.b)}</td><td>${bn(x.f)}</td><td>${bn(x.s)}</td><td>${x.b?bn(Math.round(x.r*100/x.b)):'–'}</td></tr>`).join('')}</table><table class="st" style="margin-top:8px"><tr><th>বোলার</th><th>ওভার</th><th>রান</th><th>উইকেট</th><th>ইকন</th></tr>${Object.values(i.bowl).map(x=>`<tr><td>${esc(x.n)}</td><td>${bn(ov(x.b))}</td><td>${bn(x.r)}</td><td><b>${bn(x.w)}</b></td><td>${x.b?bn((x.r*6/x.b).toFixed(1)):'–'}</td></tr>`).join('')}</table></div>`};
@@ -1013,6 +1055,7 @@ document.addEventListener('click',e=>{
   else if(a==='shclose'||a==='shx'){S.sheet=null;sheet()}
   else if(a==='shsave')saveSheet();
   else if(a==='rmphoto'){S.sheet.photo='';sheet()}
+  else if(a==='g'&&m&&isSetS(m.sport)){setPt(m,b.dataset.s==='hs'?'home':'away',+b.dataset.d)}
   else if(a==='g'&&m){const f=b.dataset.s,nv=Math.max(0,(m[f]||0)+(+b.dataset.d)),up0=m.status==='upcoming';write(()=>S.db.doc('matches/'+id).update({[f]:nv,hs:f==='hs'?nv:(m.hs||0),as:f==='as'?nv:(m.as||0),status:up0?'live':m.status,...(up0?{startedAt:Date.now()}:{})}))}
   else if(a==='cradj'&&m&&canScore()){const inn=String(b.dataset.i),delta=+b.dataset.d;write(()=>S.db.adjustCrScore(id,inn,delta))}
   else if(a==='st'&&m)write(()=>S.db.doc('matches/'+id).update({status:v,hs:m.hs||0,as:m.as||0,...(v==='live'?{startedAt:m.startedAt||Date.now()}:{}),...(v==='done'?{doneAt:Date.now()}:{})}));
@@ -1037,7 +1080,7 @@ document.addEventListener('click',e=>{
   else if(a==='evp'){evKeep();S.sheet.pid=S.sheet.pid===id?'':id;S.sheet.name='';sheet()}
   else if(a==='evk')addEv(v);
   else if(a==='evdel')delEv(id);
-  else if(a==='tp'&&S.sheet){const arr=S.sheet[b.dataset.t]||(S.sheet[b.dataset.t]=[]),i=arr.indexOf(id);if(i<0)arr.push(id);else arr.splice(i,1);b.classList.toggle('on')}
+  else if(a==='tp'&&S.sheet){const t=b.dataset.t,ot=t==='hp'?'ap':'hp',arr=S.sheet[t]||(S.sheet[t]=[]),oa=S.sheet[ot]||[],i=arr.indexOf(id);if(i<0){if(oa.includes(id)){toast('এই প্লেয়ার অন্য টিমে আছে');return}arr.push(id)}else arr.splice(i,1);b.classList.toggle('on');const lock=arr.includes(id);document.querySelectorAll('[data-a="tp"][data-t="'+ot+'"][data-id="'+id+'"]').forEach(x=>{x.disabled=lock;x.classList.toggle('dis',lock)})}
   else if(a==='qg'&&canScore())quickEv(id,b.dataset.t,b.dataset.p);
   else if(a==='prof'){S.sheet={kind:'prof',pid:id};sheet()}
   else if(a==='zoom'){const g=S.gallery.find(x=>x.id===id);if(g){S.sheet={kind:'zoom',src:g.photo};sheet()}}
@@ -1055,7 +1098,12 @@ document.addEventListener('click',e=>{
   else if(a==='crp'){crKeep();S.sheet[b.dataset.k]=id;sheet()}
   else if(a==='cro'){S.sheet={kind:'ev',mid:S.sheet.mid,team:S.sheet.team,pid:'',name:'',min:''};sheet()}
   else if(a==='crb'&&canScore()){crKeep();const sh=S.sheet,mm=S.matches.find(x=>x.id===sh.mid),bat=(sh.bat||'').trim(),bw=(sh.bow||'').trim();if(!mm)return;if(!bat||!bw){toast('ব্যাটার ও বোলার বাছুন');return}
-    const p=roster(mm,sh.team).find(x=>x.name===bat),q=roster(mm,sh.team==='home'?'away':'home').find(x=>x.name===bw);addEvent(mm,{k:v,team:sh.team,pid:p&&p.v?p.id:'',name:bat,bw,bwp:q&&q.v?q.id:'',inn:sh.inn})}
+    const ck=crGuard(mm,sh.inn,bat,bw,v);if(ck){toast(ck);return}
+    const p=roster(mm,sh.team).find(x=>x.name===bat),q=roster(mm,sh.team==='home'?'away':'home').find(x=>x.name===bw);addEvent(mm,{k:v,team:sh.team,pid:p&&p.v?p.id:'',name:bat,bw,bwp:q&&q.v?q.id:'',inn:sh.inn});
+    const nl=(mm.events||[]).filter(e=>e.inn===sh.inn&&crLegalK(e.k)).length+(crLegalK(v)?1:0);
+    if(v==='wk'||v==='ro'){sh.bat='';toast('☝️ '+bat+' আউট','নতুন ব্যাটার বাছুন')}
+    if(crLegalK(v)&&nl>0&&nl%6===0){sh.bow='';toast('🕐 ওভার শেষ','নতুন বোলার বাছুন')}
+    sheet()}
   else if(a==='crundo'||(a==='undo'&&m)){const mm=a==='undo'?m:S.matches.find(x=>x.id===S.sheet.mid),E=(mm&&mm.events)||[];if(E.length&&canScore()){const sv=S.sheet;S.sheet={kind:'x',mid:mm.id};delEv(E[E.length-1].id);S.sheet=sv}}
   else if(a==='card'){S.sheet={kind:'card',mid:id};sheet()}
   else if(a==='unapprove'&&S.admin){const k='unap'+id;if(S.del!==k){S.del=k;render();adList();return}S.del=null;write(async()=>{await S.db.doc('users/'+id).set({approved:false});await S.db.doc('requests/'+id).set({status:'removed'})})}
